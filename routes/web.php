@@ -19,3 +19,6 @@ Route::get('/saludo', function () {
     return view('saludo',['nombre' => $nombre]);
     // return view('saludo');
 })->name('saludo');
+Route::get('/home', function () {
+    return view('home');
+});
