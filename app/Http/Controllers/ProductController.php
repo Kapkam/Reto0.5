@@ -25,7 +25,7 @@ class ProductController extends Controller
         echo "<br><br>";
       }*/
 
-      return view('productos',['productos' => $products]);
+      return view('shop',['productos' => $products]);
     }
 
     /**
@@ -35,7 +35,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-      return view('insertarProducto');
+      return view('addprod');
     }
 
     /*action='insertarProducto'*/
@@ -59,7 +59,7 @@ class ProductController extends Controller
 
       $product->save();
 
-      return view('productos');
+      return view('shop');
     }
 
     /**
@@ -104,7 +104,7 @@ class ProductController extends Controller
 
       $product->save();
 
-      return view('products');
+      return view('shop');
     }
 
     /**
@@ -117,7 +117,7 @@ class ProductController extends Controller
     {
       Product::destroy($id);
 
-      return view('productos');
+      return view('shop');
     }
 
     public function listaProductos($shop_id)
@@ -132,6 +132,6 @@ class ProductController extends Controller
         echo "<br><br>";
       }*/
 
-      return view('productos', ['productos' => $products]);
+      return view('shop', ['productos' => $products]);
     }
 }

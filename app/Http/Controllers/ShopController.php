@@ -16,10 +16,10 @@ class ShopController extends Controller
     {
         $shops = Shop::all();
 
-        foreach ($shops as $shop) {
+        /*foreach ($shops as $shop) {
           echo $shop->name;
           echo "<br><br>";
-        }
+        }*/
     }
 
     /**

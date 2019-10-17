@@ -9,40 +9,13 @@
 	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	-->
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/jquery.translate.js"></script> <!--Archivo traductor-->
-	<script type="text/javascript" src="js/diccionario.js"></script> <!--Diccionaro de la pagina-->
+	<script type="text/javascript" src="jquery.js"></script>-
+	<script type="text/javascript" src="jquery.translate.js"></script><!--Archivo traductor-->
+	<script type="text/javascript" src="diccionario.js"></script> <!--Diccionaro de la pagina-->
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"><!--Fuente personalizada-->
 	<link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
 	<meta charset="utf-8">
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-			//Si se hace click en el logo nos muestra los botones para añadir, elimnar, modificar y consultar stock
-			$("#logoSmall").click(function(){
-    			$(".moss").toggle();
-  			});
-
-  			//Muestra el formulario de añadir
-		  $("#a").click(function(){
-    			$(".añadir").toggle();
-  			});
-		    //Muestra el formulario de eliminar
-		  $("#b").click(function(){
-    			$(".quitar").toggle();
-  			});
-		    //Muestra el formulario de modificar stock
-		  $("#c").click(function(){
-    			$(".mod").toggle();
-  			});
-		    //Muestra el formulario de consultar stock
-		  $("#d").click(function(){
-    			$(".cons").toggle();
-  			});
-		});
-
-	</script>
 </head>
 <body>
 	<input class="trad" type="image" src="img/en.jpg" width="3%" value="Ingles" name="Ingles" onclick="ingles()">
@@ -80,7 +53,7 @@
 			  </datalist>
 			  <input type="button" class="boton" value="Filtrar">
 			</form>
-			
+
 			<!--Formularios ocultos-->
 			<form>
 			<input class="basedatos añadir" type="text" name="añadir" placeholder="Id producto a añadir">
