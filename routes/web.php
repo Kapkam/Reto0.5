@@ -12,13 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/saludo', function () {
-  $nombre = "dw32";
-    return view('saludo',['nombre' => $nombre]);
-    // return view('saludo');
-})->name('saludo');
-Route::get('/home', function () {
     return view('home');
 });
+
+Route::get('/products', 'ProductController@index');
+
+Route::get('/products/create', 'ProductController@create');
+/*action='insertarProducto'*/
+Route::post('/products', 'ProductController@store')->name('insertarProducto');
+
+Route::/*put*/patch('/products/{product}', 'ProductController@update');
+
+Route::delete('/products/{product}', 'ProductController@destroy');
+
+Route::get('/shops', 'ShopController@index');
+
+Route::get('/productslist/{shop}', 'ProductController@listaProductos');
+
+?>
