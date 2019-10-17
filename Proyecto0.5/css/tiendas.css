@@ -1,8 +1,12 @@
 *{
 	padding: 0px;
 	margin: 0px;
+	font-family: 'Roboto', sans-serif;
 }
-
+body {
+  background: linear-gradient(169deg, #FFF 0%, #EEE 51%, #DDD 75%);
+  background-repeat: no-repeat;
+}
 #logoSmall{
 	width: 20%;
 	border: 2px solid black;
@@ -10,34 +14,57 @@
 }
 #logoSmall img{
 	width: 100%;
+	  filter:saturate(3);
 }
 
 aside{
-	border: 2px solid black;
+	border: 2px solid #444;
 	height: 600px;
 	width: 20%;
 	margin-left: 2%;
 	margin-right: 1%;
 	float: left;
+	background-color: #f5f5fa;
+	filter:drop-shadow(4px 4px 5px black);
 }
 
 
 article{
-	width: 76%;
+	width: 75%;
 	float: right;
 }
 section{
+	background-color:rgba(0,0,0,0);
 	float: left;
 	border: 2px solid black;
 	width: 25%;
 	margin: 1%;
+	transition: 0.5s;
+}
+section:hover{
+	float: left;
+	border: 2px solid black;
+	width: 26%;
+	margin: 0px;
 }
 section img{
 	width: 100%;
 }
+section img:hover{
+	width: 100%;
+	filter:drop-shadow(5px 5px 7px gray);
+}
 h4{
 	text-align: center;
 	border-top: 1px solid black;
+	color: white;
+	background-color: black;
+}
+h4:hover{
+	text-align: center;
+	border-top: 1px solid black;
+	color: black;
+	background-color: white;
 }
 
 ul {
@@ -45,7 +72,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background: linear-gradient(120deg, #df001e , #04398e);
 }
 li {
   float: left;
@@ -58,5 +85,28 @@ li a {
   text-decoration: none;
 }
 li a:hover {
-  background-color: #111;
+  text-shadow: 2px 2px 2px black;
+}
+.moss, .basedatos{
+	display: none;
+}
+.trad{
+	float: right;
+}
+
+.boton{
+	border: 1px solid black;
+	background-color: white;
+	border-radius: 10%;
+	filter: drop-shadow(2px 2px 4px);
+	padding: 5px;
+	font-weight: bolder;
+}
+
+table{
+	margin-left: 40%;
+	background: linear-gradient(169deg, #FFF, #AAA);
+	font-weight: bolder;
+	text-align: center;
+	filter:drop-shadow(5px 5px 7px gray);
 }
