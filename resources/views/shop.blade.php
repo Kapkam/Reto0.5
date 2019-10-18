@@ -29,13 +29,6 @@
 		  <li><a class="trn" data-trn-key="Location" href="#">Ubicacion</a></li>
 		</ul>
 
-		<!--Botones ocultos-->
-		<input type="button" name="a" class="moss boton" id="a" value="Añadir producto">
-		<input type="button" name="b" class="moss boton" id="b" value="Eliminar producto">
-		<input type="button" name="c" class="moss boton" id="c" value="Modificar stock">
-		<input type="button" name="d" class="moss boton" id="d" value="Consultar stock">
-		<!--Fin botones ocultos-->
-
 		<div id="logoSmall">
 			<img src="..img/zara-logo.png" >
 		</div>
