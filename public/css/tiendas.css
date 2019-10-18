@@ -5,7 +5,7 @@
 }
 body {
   background: linear-gradient(169deg, #FFF 0%, #EEE 51%, #DDD 75%);
-  background-repeat: no-repeat;
+  background-image: url(../img/background.png);
 }
 #logoSmall{
 	width: 20%;
@@ -67,6 +67,21 @@ h4:hover{
 	background-color: white;
 }
 
+h5, h6{
+	text-align: center;
+	border:1px solid black;
+	text-shadow: 2px 2px 3px gray;
+	padding: 3px;
+}
+h6{
+	font-size: 0.8em;
+}
+h5{
+	font-size: 1.2em;
+}
+h5:hover,h6:hover{
+	background-color: ghostwhite;
+}
 ul {
   list-style-type: none;
   margin: 0;

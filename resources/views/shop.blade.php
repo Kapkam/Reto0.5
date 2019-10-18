@@ -23,35 +23,28 @@
 	<div id="contenedor">
 
 		<ul>
-		  <li><a class="trn" data-trn-key="Home" href="#">Inicio</a></li>
-		  <li><a class="trn" data-trn-key="Store" href="#">Tiendas</a></li>
-		  <li><a class="trn" data-trn-key="Contact" href="#">Contacto</a></li>
-		  <li><a class="trn" data-trn-key="Location" href="#">Ubicacion</a></li>
+		  <li><a href="#">Inicio</a></li>
+		  <li><a href="#">Tiendas</a></li>
+		  <li><a href="#">Contacto</a></li>
+		  <li><a href="#">Ubicacion</a></li>
 		</ul>
-
-		<!--Botones ocultos-->
-		<input type="button" name="a" class="moss boton" id="a" value="Añadir producto">
-		<input type="button" name="b" class="moss boton" id="b" value="Eliminar producto">
-		<input type="button" name="c" class="moss boton" id="c" value="Modificar stock">
-		<input type="button" name="d" class="moss boton" id="d" value="Consultar stock">
-		<!--Fin botones ocultos-->
 
 		<div id="logoSmall">
 			<img src="../img/zara-logo.png" >
 		</div>
-		<form action='añadirProducto' method='get'><input type='submit' value='Añadir un producto'></form>
-		<form action='realizarConsulta' method='get'><input type='submit' value='Relizar una consulta'></form>
+		<form action='añadirProducto' method='get'><input class='boton' type='submit' value='Añadir un producto'></form>
+		<form action='realizarConsulta' method='get'><input class='boton' type='submit' value='Relizar una consulta'></form>
 		<article>
 			<?php
 				foreach ($products as $product) {
 					echo"<section>"
 						. "<img src='" . /*$product->img .*/" '>"
-						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->name . "</h4>"
-						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->description . "</h4>"
-						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->stock . "</h4>"
+						. "<h5>" . $product->name . "</h5>"
+						. "<h6>" . $product->description . "</h6>"
+						. "<h6>" . $product->stock . "</h6>"
 						. "</section>"
-						. "<form action='eliminarProducto' method='delete'><input type='submit' value='Eliminar'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>"
-						. "<form action='modificarProducto' method='get'><input type='submit' value='Modificar stock'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>";
+						. "<form action='eliminarProducto' method='delete'><input class='boton' type='submit' value='Eliminar'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>"
+						. "<form action='modificarProducto' method='get'><input class='boton' type='submit' value='Modificar stock'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>";
 				}
 			?>
 		</article>
