@@ -133,38 +133,46 @@
       </div>
       <div class="contactenos">
         <div id="mapa">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2585.667578605696!2d-3.008300760871674!3d43.288570257662386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e5098f8e89c49%3A0x92c3d3370aab5dfc!2sCentro%20Comercial%20Max%20Center!5e0!3m2!1ses!2ses!4v1571297495856!5m2!1ses!2ses" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2904.222951106496!2d-3.0102398848727794!3d43.28865248394533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e5098f8e89c49%3A0x92c3d3370aab5dfc!2sCentro%20Comercial%20Max%20Center!5e0!3m2!1ses!2ses!4v1571382115335!5m2!1ses!2ses" width="400" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         </div>
-        <div class="contact-form">
+        <div id="contacto" class="contact-form">
             <div class="row">
               <form class="con-form">
-                <h1 id="contacto">Contáctenos</h1>
+                <h1>Contáctenos</h1>
                 <input type="email" class="form-control" placeholder="Your E-mail">
                 <textarea class="form-control" rows="4" placeholder="Message"></textarea>
                 <button type="submit" class="btn btn-primary" name="Send">Send</button>
               </form>
               <div class="horario">
-                <div>
-                  <label>Tel:</label><input type="text" name="con-tel" readonly value="(+34) 94 499 73 00">
-                  <label>E-mail</label><input type="text" name="con-email" readonly value="info@adm.maxcenter.com">
+                <div id="telEmail">
+                  <h2>Info:</h2>
+                  <label>Tel:</label><input type="text" name="con-tel" readonly value="(+34) 94 499 73 00"><br>
+                  <label>E-mail:</label><input type="text" name="con-email" readonly value="info@adm.maxcenter.com">
                 </div>
                 <div>
-                  <h2>Horario</h2>
-                  <div class="cc">
-                    <h3>Centro Comercial</h3>
-                    <p>Lun - Sab desde 10:00 hasta 22:00</p>
-                    <p>Dom Cerrado(Los domingos las zonas de Ocio y Restauración permanecen abiertas (las Tiendas cierran))</p>
-                  </div>
-                  <div class="zo">
-                    <h3>Zona Ocio</h3>
-                    <p>Lun - Jue desde 12:00 hasta 01:30</p>
-                    <p>Vie - Sab desde 12:00 hasta 03:30</p>
-                    <p>Dom desde 12:00 hasta 01:30</p>
-                  </div>
-                  <div class="taquillas">
-                    <h3>Taquillas</h3>
-                    <p>Lun - Dom desde 15:30 hasta 23:00</p>
-                  </div>
+                  <h1 id="horario">Horario</h1>
+                  <table class="tg">
+                    <tr>
+                      <th class="tg-c3ow">Centro comercial</th>
+                      <th class="tg-baqh">Zona Ocio</th>
+                      <th class="tg-baqh">Tquillas</th>
+                    </tr>
+                    <tr>
+                      <td class="tg-baqh">Lun - Sab desde 10:00 hasta 22:00</td>
+                      <td class="tg-lqy6">Lun - Jue desde 12:00 hasta 01:30</td>
+                      <td class="tg-baqh">Lun - Dom desde 15:30 hasta 23:00</td>
+                    </tr>
+                    <tr>
+                      <td class="tg-baqh">Dom Cerrado</td>
+                      <td class="tg-baqh">Vie - Sab desde 12:00 hasta 03:30</td>
+                      <td class="tg-baqh"></td>
+                    </tr>
+                    <tr>
+                      <td class="tg-baqh"></td>
+                      <td class="tg-baqh">Dom desde 12:00 hasta 01:30</td>
+                      <td class="tg-baqh"></td>
+                    </tr>
+                  </table>
                 </div>
               </div>
             </div>
