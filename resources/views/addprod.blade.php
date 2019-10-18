@@ -4,10 +4,10 @@
 	<title>Añadir un producto</title>
 	<link rel="stylesheet" type="text/css" href="../../css/tiendas.css">
 
-	<script type="text/javascript" src="{{ URL::asset('..js/jquery.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('..js/jquery.translate.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('..js/translatejs.jquery.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('..js/diccionario.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('../js/jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('../js/jquery.translate.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('../js/translatejs.jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('../js/diccionario.js') }}"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"><!--Fuente personalizada-->
 	<link rel="icon" type="image/png" href="../img/favicon.png" sizes="32x32">
