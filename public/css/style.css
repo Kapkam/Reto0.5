@@ -16,8 +16,8 @@ html {
   z-index: 99999998;
 }
 .nav img{
-  width: 4em;
-  height: 4em;
+  width: 3em;
+  height: 3em;
 }
 .nav ul{
   display: flex;
@@ -30,9 +30,14 @@ html {
   display: block;
   text-decoration: none;
   padding: 16px;
-  font-size: 16px;
   border: none;
   cursor: pointer;
+}
+.icon{
+  display:none;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .dropdown {
   position: relative;
@@ -155,7 +160,7 @@ width: 100%;
 .tarjeta button{
   margin: 10px 0px 10px 0px;
   color:#ffffff;
-  background-color: #33CCFF;
+  background-color: #f52b07;
   border: none;
   padding: 5px 15px 5px 15px;
 }
@@ -166,7 +171,7 @@ width: 100%;
   font-style: italic;
   margin: 1em 4em 0.5em 1.5em;
   padding-right: 4em;
-  border-right: 2px solid #02c92d;
+  border-right: 2px solid #ed6666;
 }
 .info-titulo hr{
   margin-top: 1.5em;
@@ -198,7 +203,6 @@ width: 100%;
   margin:2em;
   border-radius: 1em;
   border-left: 2px solid yellow;
-  width: 100%;
   background-color: #ebebeb;
 }
 .con-form{
@@ -289,4 +293,81 @@ width: 100%;
 iframe{
   margin:2em 0em 2em 2em;
   border-radius: 1em;
+}
+/* Footer */
+.footer{
+  color:#ffffff;
+  background-color: #f52b07;
+}
+.tgfo{
+  margin-left: 2.5em;
+  display: flex;
+  justify-content: space-around;
+
+}
+.footer h1{
+  margin-top: 1.5em;
+}
+/* Responsive mediaquery */
+@media only screen and (max-width: 800px) {
+/* navbar */
+  #logo{
+    display:none;
+  }
+  .nav li.active {
+    font-size: 2em;
+    background-color: red;
+  }
+  .active a{
+    color: #ffffff;
+  }
+  .pags:not(.active):not(.last){
+    border-bottom: 1px solid grey;
+  }
+  .dropdown-content {
+    width: 100%;
+  }
+  .nav ul{
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .nav li:not(:first-child) {
+    display: none;
+  }
+  .nav li.icon {
+    float: right;
+    display: block;
+  }
+  .nav.responsive {
+    position: relative;
+  }
+  .nav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .nav.responsive li {
+    flex-direction: column;
+    display: block;
+  }
+  /* contactenos */
+  .contactenos{
+    flex-direction: column;
+  }
+  .row{
+    margin:1em 0.5em 1em 0.5em;
+  }
+  .horario{
+    flex-direction: column;
+  }
+/* footer */
+  .tgfo{
+    text-align: center;
+    margin:0em;
+    flex-direction: column;
+    padding:1em 0em 1em 0em;
+  }
+  .tgfo h1{
+    margin: 1em;
+  }
 }
