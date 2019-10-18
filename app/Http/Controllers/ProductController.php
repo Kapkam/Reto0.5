@@ -108,7 +108,7 @@ class ProductController extends Controller
 
       $products = Product::all();
 
-      return view('shop' , ['productslist' => $products]);
+      return view('shop' , ['products' => $products]);
     }
 
     /**
