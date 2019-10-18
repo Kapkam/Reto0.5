@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/shops', 'ShopController@index');
+
+Route::get('/productslist/{shop}', 'ProductController@listaProductos');
 
 Route::get('/products', 'ProductController@index');
 
@@ -23,10 +23,10 @@ Route::post('/products', 'ProductController@store')->name('insertarProducto');
 
 Route::/*put*/patch('/products/{product}', 'ProductController@update');
 
-Route::delete('/products/{product}', 'ProductController@destroy');
+Route::delete('/products/{product}', 'ProductController@destroy')->name('eliminarProducto');
 
-Route::get('/shops', 'ShopController@index');
-
-Route::get('/productslist/{shop}', 'ProductController@listaProductos');
+Route::get('products/{product}',function(){
+   return view('modificarProducto');
+});
 
 ?>

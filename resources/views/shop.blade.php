@@ -1,25 +1,24 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
 	<title>Tienda</title>
-	<link rel="stylesheet" type="text/css" href="css/tiendas.css">
-	<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+	<link rel="stylesheet" type="text/css" href="../css/tiendas.css">
 
-	<!--
-	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-	-->
-	<script type="text/javascript" src="jquery.js"></script>-
-	<script type="text/javascript" src="jquery.translate.js"></script><!--Archivo traductor-->
-	<script type="text/javascript" src="diccionario.js"></script> <!--Diccionaro de la pagina-->
+	<script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/jquery.translate.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/translatejs.jquery.json') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/diccionario.js') }}"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"><!--Fuente personalizada-->
 	<link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
 	<meta charset="utf-8">
 </head>
 <body>
-	<input class="trad" type="image" src="img/en.jpg" width="3%" value="Ingles" name="Ingles" onclick="ingles()">
-	<input class="trad" type="image" src="img/es.jpg" width="3%"value="Castellano" name="Castellano" onclick="castellano()">
+	<input class="trad" type="image" src="../img/en.jpg" width="3%" value="Ingles" name="Ingles" onclick="ingles()">
+	<input class="trad" type="image" src="../img/es.jpg" width="3%"value="Castellano" name="Castellano" onclick="castellano()">
 	<img src="img/maxcenter.png">
 	<div id="contenedor">
 
@@ -38,58 +37,22 @@
 		<!--Fin botones ocultos-->
 
 		<div id="logoSmall">
-			<img src="img/zara-logo.png" >
+			<img src="..img/zara-logo.png" >
 		</div>
-		<aside>
-			<p class="trn" data-trn-key="Filter by:">Filtrar por:</p>
-			<form action="#" method="post">
-			  <input list="filtro" name="filtro">
-			  <datalist id="filtro">
-			    <option value="Mujer">
-			    <option value="Hombre">
-			    <option value="Niños">
-			    <option value="Mas baratos">
-			    <option value="Mas caros">
-			  </datalist>
-			  <input type="button" class="boton" value="Filtrar">
-			</form>
-
-			<!--Formularios ocultos-->
-			<form>
-			<input class="basedatos añadir" type="text" name="añadir" placeholder="Id producto a añadir">
-			<input class="basedatos añadir boton" type="button" name="añadirProd" value="añadir producto">
-			<br>
-			<input class="basedatos quitar" type="text" name="quitar" placeholder="Id producto a eliminar">
-			<input class="basedatos quitar boton" type="button" name="quitarProd" value="Eliminar">
-			<br>
-			<input class="basedatos mod" type="text" name="modificar" placeholder="Id producto">
-			<input class="basedatos mod" type="number" name="cantidad">
-			<input class="basedatos mod boton" type="button" name="modProd" value="modificar stock">
-			<br>
-			<input class="basedatos cons" type="text" name="consulta" placeholder="Consulta stock">
-			<input class="basedatos cons boton" type="button" name="consulta" value="Consulta stock">
-			</form>
-			<!--Fin de formularios-->
-
-		</aside>
 
 		<article>
-			<section>
-				<img src="img/prod1.png">
-				<h4 class="trn" data-trn-key="T-SHIRT">CAMISETA</h4>
-			</section>
-			<section>
-				<img src="img/prod2.png">
-				<h4 class="trn" data-trn-key="JEANS">PANTALONES</h4>
-			</section>
-			<section>
-				<img src="img/prod3.png">
-				<h4 class="trn" data-trn-key="JACKET">CHAQUETAS</h4>
-			</section>
-			<section>
-				<img src="img/prod4.png">
-				<h4 class="trn" data-trn-key="HAT">SOMBREROS</h4>
-			</section>
+			<?php
+				foreach ($products as $product) {
+					echo"<section>"
+						. "<img src='" . /*$product->img .*/" '>"
+						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->name . "</h4>"
+						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->description . "</h4>"
+						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->stock . "</h4>"
+						. "</section>"
+						. "<form action='eliminarProducto' method='delete'><input type='submit' value='Eliminar'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>"
+						. "<form action='modificarProducto' method='delete'><input type='submit' value='Modificar stock'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>";
+				}
+			?>
 		</article>
 	</div>
 

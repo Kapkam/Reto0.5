@@ -20,6 +20,7 @@ class ShopController extends Controller
           echo $shop->name;
           echo "<br><br>";
         }*/
+        return view('home',['shops'=>$shops]);
     }
 
     /**
