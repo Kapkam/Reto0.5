@@ -11,38 +11,19 @@
       <div id="myTopnav" class="nav">
         <ul>
           <li class="pags active"><a href="#top">Inicio</a></li>
-          <li class="pags dropdown">
-            <a class="dropbtn" href="#tiendas">Ropa</a>
-            <div class="dropdown-content">
-              <a href="#">Zara</a>
-              <a href="#">Pull&Bear</a>
-              <a href="#">Springfield</a>
-            </div>
-          </li>
-          <li class="pags dropdown">
-            <a class="dropbtn" href="#tiendas">Ocio</a>
-            <div class="dropdown-content">
-              <a href="#">Cines</a>
-              <a href="#">Bolera</a>
-            </div>
-          </li>
+          <li class="pags active"><a href="#top">Tienda1</a></li>
+          <li class="pags active"><a href="#top">Tienda2</a></li>
           <li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
-          <li class="pags dropdown">
-            <a class="dropbtn" href="#tiendas">Restaurantes</a>
-            <div class="dropdown-content">
-              <a href="#">Burguerking</a>
-              <a href="#">Brasa y Leña</a>
-              <a href="#">Foster's Hollywood</a>
-            </div>
-          </li>
+          <li class="pags last"><a href="#contacto">Tienda3</a></li>
+          <li class="pags last"><a href="#contacto">Tienda4</a></li>
           <li class="pags dropdown">
             <a class="dropbtn" href="#">Centro</a>
             <div class="dropdown-content">
               <a href="#horario">Horario</a>
               <a href="#mapa">Mapa</a>
+              <a href="#contacto">Contáctanos</a>
             </div>
           </li>
-          <li class="pags last"><a href="#contacto">Contáctenos</a></li>
           <li class="icon"><a href="javascript:void(0);" onclick="myFunction()"><img src="{{ url('/img/bars.png') }}" alt="bras"></a></li>
         </ul>
       </div>
