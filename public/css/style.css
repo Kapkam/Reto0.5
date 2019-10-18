@@ -3,11 +3,9 @@
   padding: 0px;
   margin: 0px;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 /* Navbar */
 .nav{
   background: #ffffff;
@@ -36,12 +34,10 @@ html {
   border: none;
   cursor: pointer;
 }
-
 .dropdown {
   position: relative;
   display: inline-block;
 }
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -50,20 +46,17 @@ html {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 99999999;
 }
-
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
-
 .pags a:hover {
   transition: 0.5s;
   background-color:#f52b07;
   color: #ffffff;
 }
-
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -103,9 +96,7 @@ width: 100%;
   height: 4em;
   padding-top: 1.25em;
   text-align: center;
-  background-image:  linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,1.5)),url("../img/newsletter.jpg");
-  /* background-attachment: fixed; */
-  /* background-size: cover; */
+  background-image:  linear-gradient(rgba(69,69,69,0.4), rgba(255,255,255,1.5));
 }
 .newsletter input{
   border-radius: 1em;
@@ -135,7 +126,7 @@ width: 100%;
 }
 .tarjeta{
   border-radius: 1em;
-  flex: 1 1 200px;
+  flex: 1 1 300px;
   font-size: 16px;
   margin:20px;
   background-color: #ffffff;
@@ -239,11 +230,62 @@ width: 100%;
   background-color: #f52b07;
 }
 .horario{
-  padding: 2em 0.5em 2em 0.5em;
+  padding: 0em 0.5em 2em 0.5em;
   display: flex;
-  flex-direction: column;
   text-align: center;
 }
+#telEmail h2{
+  margin-bottom: 5px;
+}
+#telEmail{
+  display: flex;
+  flex-direction: column;
+}
+/* Tabla */
+.tg  {
+  margin:1em;
+  border-collapse:collapse;
+  border-spacing:0;
+  border-color:#aaa;
+}
+.tg td{
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  padding:10px 5px;
+  border-style:solid;
+  border-width:0px;
+  overflow:hidden;
+  word-break:normal;
+  border-color:#ed7e7e;
+  color:#333;
+  /* background-color:#fff; */
+}
+.tg th{
+  font-family:Arial, sans-seriffont-size:14px;
+  font-weight:normal;
+  padding:10px 5px;
+  border-style:solid;
+  border-width:0px;
+  overflow:hidden;
+  word-break:normal;
+  border-color:#ed6666;
+  color:#fff;
+  background-color:#ed6666;
+}
+.tg .tg-baqh{
+  text-align:center;
+  vertical-align:top
+}
+.tg .tg-c3ow{
+  border-color:inherit;
+  text-align:center;
+  vertical-align:top
+}
+.tg .tg-lqy6{
+  text-align:right;
+  vertical-align:top
+}
+/* fin tabla */
 iframe{
   margin:2em 0em 2em 2em;
   border-radius: 1em;
