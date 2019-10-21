@@ -9,7 +9,8 @@
 
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.translate.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('js/translatejs.jquery.json') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/translatejs.jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/diccionario.js') }}"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"><!--Fuente personalizada-->
@@ -23,17 +24,17 @@
 	<div id="contenedor">
 
 		<ul>
-		  <li><a href="#">Inicio</a></li>
-		  <li><a href="#">Tiendas</a></li>
-		  <li><a href="#">Contacto</a></li>
-		  <li><a href="#">Ubicacion</a></li>
+		  <li><a class="trn" data-trn-key="Home" href="#">Inicio</a></li>
+		  <li><a class="trn" data-trn-key="Store" href="#">Tiendas</a></li>
+		  <li><a class="trn" data-trn-key="Contact" href="#">Contacto</a></li>
+		  <li><a class="trn" data-trn-key="Location" href="#">Ubicacion</a></li>
 		</ul>
 
 		<div id="logoSmall">
 			<img src="../img/zara-logo.png" >
 		</div>
-		<form action='añadirProducto' method='get'><input class='boton' type='submit' value='Añadir un producto'></form>
-		<form action='realizarConsulta' method='get'><input class='boton' type='submit' value='Relizar una consulta'></form>
+		<form action='añadirProducto' method='get'><input id="bottrad" class='boton' type='submit' value='Añadir un producto'></form>
+		<form action='realizarConsulta' method='get'><input id="botcon"  class='boton' type='submit' value='Relizar una consulta'></form>
 		<article>
 			<?php
 				foreach ($products as $product) {
@@ -43,8 +44,8 @@
 						. "<h6>" . $product->description . "</h6>"
 						. "<h6>" . $product->stock . "</h6>"
 						. "</section>"
-						. "<form action='eliminarProducto' method='delete'><input class='boton' type='submit' value='Eliminar'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>"
-						. "<form action='modificarProducto' method='get'><input class='boton' type='submit' value='Modificar stock'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>";
+						. "<form action='eliminarProducto' method='delete'><input id='delete' class='boton' type='submit' value='Eliminar'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>"
+						. "<form action='modificarProducto' method='get'><input id='modify' class='boton' type='submit' value='Modificar stock'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>";
 				}
 			?>
 		</article>

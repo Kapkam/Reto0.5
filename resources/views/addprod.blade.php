@@ -4,10 +4,11 @@
 	<title>Añadir un producto</title>
 	<link rel="stylesheet" type="text/css" href="../../css/tiendas.css">
 
-	<script type="text/javascript" src="{{ URL::asset('../..js/jquery.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('../..js/jquery.translate.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('../..js/translatejs.jquery.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('../..js/diccionario.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/jquery.translate.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/translatejs.jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/diccionario.js') }}"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"><!--Fuente personalizada-->
 	<link rel="icon" type="image/png" href="../../img/favicon.png" sizes="32x32">
@@ -15,8 +16,8 @@
 
 </head>
 <body>
-	<input class="trad" type="image" src="../../img/en.jpg" width="3%" value="Ingles" name="Ingles" onclick="ingles()">
-	<input class="trad" type="image" src="../../img/es.jpg" width="3%"value="Castellano" name="Castellano" onclick="castellano()">
+	<input class="trad" type="image" src="../../img/en.jpg" width="3%" value="Ingles" name="Ingles" onclick="ctrlIng()">
+	<input class="trad" type="image" src="../../img/es.jpg" width="3%"value="Castellano" name="Castellano" onclick="ctrlEsp()">
 	<img src="../../img/maxcenter.png">
 	<div id="contenedor">
 		<ul>
@@ -46,7 +47,7 @@
 				  <tr>
 				  	<td class="trn" data-trn-key="Product image">Imagen del producto</td>
 				  	<td>
-				  		<input type="file" name="myImage" accept="image/*" />
+				  		<input id="image" type="file" name="myImage" accept="image/*" />
 				  	</td>
 				  </tr>
 				  <tr>
@@ -59,27 +60,30 @@
 				  </tr>
 				  
 				</table>
-				<input class="boton" type="button" value="Añadir producto" name="boton" onclick="Producto()">
+				<input id="bottrad" class="boton" type="button" value="Añadir producto" name="boton" onclick="Producto()">
 			</form>
-			<p  id="seleccion"></p>
+			<p id="seleccion"></p>
 	</div>
 
 	<script type="text/javascript">
-		var vid = document.getElementById("Video"); //Variables para almacenar los datos de TODOS los campos
+	//Variables para almacenar los datos de TODOS los campos
+		var vid = document.getElementById("Video"); 
 		var nom = document.getElementById("nb");
 		var stock = document.getElementById("stock");
 		var img = document.getElementById("image");
 		var selec = document.getElementById("seleccion");
 
 		function Producto(){
-			if (vid.value=="" || nom.value=="" || stock.value=="" || img.value=="" ) { //Comprobamos que los campos tienen algun valor
-				selec.innerHTML = "<p>Por favor, rellene todos los campos antes de continuar</p>";
+			//Comprobamos que los campos tienen algun valor
+			if (vid.value=="" || nom.value=="" || stock.value=="" || img.value=="" ) { 
+				selec.innerHTML = "<p>Por favor, rellene todos los campos antes de continuar/Please, complete the form before continuing </p>";
 			}
-			else{ //Va devolviendo los valores obtenidos anterirormente
+			else{
+			//Va devolviendo los valores obtenidos anterirormente
 			alert("Enviado los datos");
+			selec.innerHTML = "<p></p>";
         	}
-        }
-		
+		}
 	</script>
 
 </body>

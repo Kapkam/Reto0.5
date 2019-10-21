@@ -36,16 +36,13 @@ article{
 section{
 	background-color:rgba(0,0,0,0);
 	float: left;
-	border: 2px solid black;
+	border: 2px solid rgb(66, 70, 75);
 	width: 25%;
 	margin: 1%;
 	transition: 0.5s;
 }
 section:hover{
-	float: left;
 	border: 2px solid black;
-	width: 26%;
-	margin: 0px;
 }
 section img{
 	width: 100%;
@@ -102,9 +99,7 @@ li a {
 li a:hover {
   text-shadow: 2px 2px 2px black;
 }
-.moss, .basedatos{
-	display: none;
-}
+
 .trad{
 	float: right;
 }

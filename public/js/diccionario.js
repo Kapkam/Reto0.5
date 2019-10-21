@@ -15,10 +15,6 @@ var dict = {
 		es: "Ubicacíon",
 		en: "Location"
 	},
-	"Filter by:":{
-		es: "Filtrar por:",
-		en: "Filter by:"
-	},
 	"T-SHIRT":{
 		es:"CAMISETAS",
 		en:"T-SHIRT"
@@ -61,7 +57,11 @@ var dict = {
 	},
 	"Description:":{
 		es:"Descripcion:",
-		en:"Description"
+		en:"Description:"
+	},
+	"Product image":{
+		es:"Imagen del producto",
+		en:"Product image"
 	},
 	"Stock":{
 		es:"Stock actual",
@@ -73,8 +73,18 @@ var dict = {
 	}
 }
 function ingles(){
-		var translator = $('body').translate({lang: "en", t: dict}); //use English
-	}
+	var translator = $('body').translate({lang: "en", t: dict}); //use English
+	//Traduccion del valor de los botones
+	document.getElementById('bottrad').value = "Add product";
+	document.getElementById('botcon').value = "Check product stock";
+	document.getElementById('delete').value = "Delete";
+	document.getElementById('modify').value = "Modify stock";
+}
 function castellano(){
-		var translator = $('body').translate({lang: "es", t: dict}); //use spanish
-	}
+	var translator = $('body').translate({lang: "es", t: dict}); //use spanish
+	//Traduccion del valor de los botones
+	document.getElementById('bottrad').value = "Añadir producto";
+	document.getElementById('botcon').value = "Realizar una consulta";
+	document.getElementById('delete').value = "Eliminar";
+	document.getElementById('modify').value = "Modificar stock";
+}

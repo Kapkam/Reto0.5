@@ -4,7 +4,13 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
     <script src="{{ asset('js/script.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
+	  <script type="text/javascript" src="{{ URL::asset('js/jquery.translate.js') }}"></script>
+	  <script type="text/javascript" src="{{ URL::asset('js/translatejs.jquery.js') }}"></script>
+	  <script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
+	  <script type="text/javascript" src="{{ URL::asset('js/diccionario.js') }}"></script>
     <title>MaxCenter</title>
+    <link rel="icon" type="image/png" href="../../img/favicon.png" sizes="32x32">
   </head>
   <body>
     <section class="navbar">
