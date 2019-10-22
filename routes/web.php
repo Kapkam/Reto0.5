@@ -27,6 +27,10 @@ Route::get('/products/{shop}/{product}', 'ProductController@destroy')->name('eli
 
 Route::get('/consulta', 'ProductController@formularioConsulta')->name('consulta');
 
+Route::get('/stock', function(){
+  return view('stock');
+});
+
 Route::post('/resultados', 'ProductController@consulta')->name('resultados');
 
 ?>
