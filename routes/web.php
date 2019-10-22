@@ -15,6 +15,8 @@ Route::get('/', 'ShopController@index');
 
 Route::get('/products/{shop}', 'ProductController@listaProductos');
 
+/*Route::get('/products/{shop}/modprod', 'ProductController@modprod')->name('ModificarProducto');*/
+
 Route::get('/products/{shop}/create', 'ProductController@create')->name('añadirProducto');
 /*action='insertarProducto'*/
 Route::post('/products/{shop}', 'ProductController@store')->name('insertarProducto');
@@ -26,5 +28,12 @@ Route::delete('/products/{shop}/{product}', 'ProductController@destroy')->name('
 /*Route::get('/products/{shop}/{product}',function(){
    return view('modproduct');
 })->name('modificarProducto');*/
+Route::get('/products/{shop}/modprod',function(){
+   return view('modprod');
+})->name('ModificarProducto');
+
+Route::get('/products/{shop}/stock',function(){
+   return view('stock');
+})->name('ConsultarStock');
 
 ?>

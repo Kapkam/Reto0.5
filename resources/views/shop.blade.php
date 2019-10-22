@@ -2,7 +2,7 @@
 	session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="es" dir="ltr">
 <head>
 	<title>Tienda</title>
 	<link rel="stylesheet" type="text/css" href="../css/tiendas.css">
@@ -18,8 +18,8 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<input class="trad" type="image" src="../img/en.jpg" width="3%" value="Ingles" name="Ingles" onclick="ingles()">
-	<input class="trad" type="image" src="../img/es.jpg" width="3%"value="Castellano" name="Castellano" onclick="castellano()">
+	<input class="trad" type="image" src="../img/en.png" width="3%" value="Ingles" name="Ingles" onclick="ctrlIng()">
+	<input class="trad" type="image" src="../img/es.jpg" width="3%"value="Castellano" name="Castellano" onclick="ctrlEsp()">
 	<img src="../img/maxcenter.png">
 	<div id="contenedor">
 
@@ -43,9 +43,9 @@
 						. "<h5>" . $product->name . "</h5>"
 						. "<h6>" . $product->description . "</h6>"
 						. "<h6>" . $product->stock . "</h6>"
-						. "</section>"
 						. "<form action='eliminarProducto' method='delete'><input id='delete' class='boton' type='submit' value='Eliminar'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>"
-						. "<form action='modificarProducto' method='get'><input id='modify' class='boton' type='submit' value='Modificar stock'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>";
+						. "<form action='modificarProducto' method='get'><input id='modify' class='boton' type='submit' value='Modificar stock'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>"
+						. "</section>";
 				}
 			?>
 		</article>

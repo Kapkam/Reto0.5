@@ -75,16 +75,40 @@ var dict = {
 function ingles(){
 	var translator = $('body').translate({lang: "en", t: dict}); //use English
 	//Traduccion del valor de los botones
-	document.getElementById('bottrad').value = "Add product";
-	document.getElementById('botcon').value = "Check product stock";
-	document.getElementById('delete').value = "Delete";
-	document.getElementById('modify').value = "Modify stock";
+	var add = document.getElementById('bottrad');
+    var con = document.getElementById('botcon');
+    var del = document.getElementById('delete');
+    var modify = document.getElementById('modify');
+    if (add) {
+        add.value = "Add product";
+    }
+    if (con) {
+        con.value = "Check product stock";
+    }
+    if (del) {
+        del.value = "Delete";
+    }
+    if (modify) {
+        modify.value = "Modify stock";
+    }
 }
 function castellano(){
 	var translator = $('body').translate({lang: "es", t: dict}); //use spanish
 	//Traduccion del valor de los botones
-	document.getElementById('bottrad').value = "Añadir producto";
-	document.getElementById('botcon').value = "Realizar una consulta";
-	document.getElementById('delete').value = "Eliminar";
-	document.getElementById('modify').value = "Modificar stock";
+	var add = document.getElementById('bottrad');
+    var con = document.getElementById('botcon');
+    var del = document.getElementById('delete');
+    var modify = document.getElementById('modify');
+    if (add) {
+        add.value = "Añadir producto";
+    }
+    if (con) {
+        con.value = "Realizar una consulta";
+    }
+    if (del) {
+        del.value = "Eliminar";
+    }
+    if (modify) {
+        modify.value = "Modificar stock";
+    }
 }
