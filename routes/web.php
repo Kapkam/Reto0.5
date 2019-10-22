@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'ShopController@index');
+Route::get('/{url}', 'ShopController@index');
 
 Route::get('/products/{shop}', 'ProductController@listaProductos')->name('productos');
 

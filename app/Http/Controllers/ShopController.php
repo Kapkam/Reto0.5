@@ -12,16 +12,16 @@ class ShopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $shops = Shop::all();
-
-        /*foreach ($shops as $shop) {
-          echo $shop->name;
-          echo "<br><br>";
-        }*/
+     public function index(Request $request)
+     {
+      $shops = Shop::all();
+      $currentRoute = $request->path();
+      if (!$currentRoute === "/") {
+        return view($currentRoute,['shops'=>$shops]);
+      }else{
         return view('home',['shops'=>$shops]);
-    }
+      }
+     }
 
     /**
      * Show the form for creating a new resource.
