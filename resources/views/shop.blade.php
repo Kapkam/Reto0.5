@@ -1,16 +1,17 @@
 <?php
 	session_start();
+	$_SESSION["shop"] = $shop;
+	$_SESSION["products"] = $products;
 ?>
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="en" dir="ltr">
 <head>
 	<title>Tienda</title>
 	<link rel="stylesheet" type="text/css" href="../css/tiendas.css">
 
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.translate.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('js/translatejs.jquery.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/translatejs.jquery.json') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/diccionario.js') }}"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"><!--Fuente personalizada-->
@@ -18,8 +19,8 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<input class="trad" type="image" src="../img/en.png" width="3%" value="Ingles" name="Ingles" onclick="ctrlIng()">
-	<input class="trad" type="image" src="../img/es.jpg" width="3%"value="Castellano" name="Castellano" onclick="ctrlEsp()">
+	<input class="trad" type="image" src="../img/en.jpg" width="3%" value="Ingles" name="Ingles" onclick="ingles()">
+	<input class="trad" type="image" src="../img/es.jpg" width="3%"value="Castellano" name="Castellano" onclick="castellano()">
 	<img src="../img/maxcenter.png">
 	<div id="contenedor">
 
@@ -30,22 +31,34 @@
 		  <li><a class="trn" data-trn-key="Location" href="#">Ubicacion</a></li>
 		</ul>
 
+		<!--Botones ocultos-->
+		<input type="button" name="a" class="moss boton" id="a" value="Añadir producto">
+		<input type="button" name="b" class="moss boton" id="b" value="Eliminar producto">
+		<input type="button" name="c" class="moss boton" id="c" value="Modificar stock">
+		<input type="button" name="d" class="moss boton" id="d" value="Consultar stock">
+		<!--Fin botones ocultos-->
+
 		<div id="logoSmall">
-			<img src="../img/zara-logo.png" >
+			<img src="../img/<?php echo(strtolower($_SESSION["shop"]->name)); ?>-logo.png" >
 		</div>
-		<form action='añadirProducto' method='get'><input id="bottrad" class='boton' type='submit' value='Añadir un producto'></form>
-		<form action='realizarConsulta' method='get'><input id="botcon"  class='boton' type='submit' value='Relizar una consulta'></form>
+		<form action="{{route('añadirProducto')}}"method='get'>
+			<input type='submit' value='Añadir un producto'>
+		</form>
+		<form action="{{route('consulta')}}" method='get'>
+			<input type='submit' value='Relizar una consulta'>
+		</form>
 		<article>
 			<?php
-				foreach ($products as $product) {
+				foreach ($_SESSION["products"] as $product) {
 					echo"<section>"
-						. "<img src='" . /*$product->img .*/" '>"
-						. "<h5>" . $product->name . "</h5>"
-						. "<h6>" . $product->description . "</h6>"
-						. "<h6>" . $product->stock . "</h6>"
-						. "<form action='eliminarProducto' method='delete'><input id='delete' class='boton' type='submit' value='Eliminar'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>"
-						. "<form action='modificarProducto' method='get'><input id='modify' class='boton' type='submit' value='Modificar stock'><input type='hidden' name='producto_id' value='" . $product->id . "'></form>"
-						. "</section>";
+						. "<img src='../img/" . $product->img ." '>"
+						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->name . "</h4>"
+						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->description . "</h4>"
+						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->stock . "</h4>"
+						. "</section>"
+						. "<button href='/products/{" . $product->shop_id ."}/{" . $product->id . "}'>Eliminar button</button>"
+						. "<form action='" . "{{route('eliminarProducto'," . $product->shop_id . "," . $product->id . ")}}" . "' method='delete'><input type='submit' value='Eliminar'></form>";
+						/*. "<form action='" . "{{route('modificarProducto')}}" . "' method='get'><input type='submit' value='Modificar stock'></form>"*/
 				}
 			?>
 		</article>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -17,11 +18,12 @@
       <div id="myTopnav" class="nav">
         <ul>
           <li class="pags active"><a href="#top">Inicio</a></li>
-          <li class="pags active"><a href="#top">Tienda1</a></li>
-          <li class="pags active"><a href="#top">Tienda2</a></li>
+          <?php
+            foreach ($shops as $shop) {
+              echo("<li class='pags active'><a href='" . route('productos',$shop) . "'>$shop->name</a></li>");
+            }
+          ?>
           <li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
-          <li class="pags last"><a href="#contacto">Tienda3</a></li>
-          <li class="pags last"><a href="#contacto">Tienda4</a></li>
           <li class="pags dropdown">
             <a class="dropbtn" href="#">Centro</a>
             <div class="dropdown-content">

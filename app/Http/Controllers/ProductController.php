@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
 use App\Shop;
+use App\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,17 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-      $products = Product::all();
 
-      /*foreach ($products as $product) {
-        echo $product->name . " ";
-        echo $product->description . " ";
-        echo $product->stock . " ";
-        echo $product->shop_id;
-        echo "<br><br>";
-      }*/
-
-      return view('shop',['products' => $products]);
     }
 
     /**
@@ -46,22 +36,33 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $shop_id)
     {
       $product = new Product;
 
-      $product->name = $request->name;
-      $product->description = $request->description;
-      $product->img = $request->img;
-      $product->stock = $request->stock;
-      $product->links = $request->links;
-      $product->shop_id = $request->shop_id;
+      if ($request->hasFile('img')) {
+        if(substr($request->file('img')->getMimeType(), 0, 5) == 'image') {
+          if ($request->file('img')->isValid()){
+            $img = $request->file('img')->getClientOriginalName();
+            $request->file('img')->move('img',$img);
+            $product->img = $img;
+          }
+        }
+      }
+
+      $product->name = $request->input('nombre');
+      $product->description = $request->input('descripcion');
+      $product->stock = $request->input('stock');
+      $product->links = $request->input('links');
+      $product->shop_id = $shop_id;
 
       $product->save();
 
-      $products = Product::all();
+      $products = Product::all()->where ("shop_id","=",$shop_id);
 
-      return view('shop' , ['products' => $products]);
+      $shop = Shop::find($shop_id);
+
+      return view('shop', ['products' => $products,'shop' => $shop] );
     }
 
     /**
@@ -108,7 +109,9 @@ class ProductController extends Controller
 
       $products = Product::all();
 
-      return view('shop' , ['products' => $products]);
+      $shop = Shop::find($request->shop_id);
+
+      return view('shop' , ['products' => $products,'shop' => $shop]);
     }
 
     /**
@@ -117,27 +120,41 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($shop_id,$id)
     {
-      Product::destroy($id);
+      $shop = Shop::find($shop_id);
 
-      $products = Product::all();
+      Product::where('id',$id)->delete();
 
-      return view('shop' , ['products' => $products]);
+      $products = Product::all()->where ("shop_id","=",$shop_id);
+
+      return view('shop' , ['products' => $products,'shop' => $shop]);
     }
+
+    /*public function modificar(Request $request,$shop_id,$product_id){
+      return view('modStock',['shop_id' => $shop_id,'product_id' => $product_id]);
+    }*/
 
     public function listaProductos($shop_id)
     {
-      $products = Shop::find($shop_id)->products;
+      $products = Product::all()->where ("shop_id","=",$shop_id);
 
-      /*foreach ($products as $product) {
-        echo $product->name . " ";
-        echo $product->description . " ";
-        echo $product->stock . " ";
-        echo $product->shop_id;
-        echo "<br><br>";
-      }*/
+      $shop = Shop::find($shop_id);
 
-      return view('shop', ['products' => $products] );
+      return view('shop', ['products' => $products,'shop' => $shop]);
+    }
+
+    public function formularioConsulta(){
+      return view("query");
+    }
+
+    public function consulta(Request $request){
+      $product_id = $request->input('id_producto');
+
+      $product = Product::find($product_id);
+
+      $stock = $product->stock;
+
+      return view('result',['result' => $stock]);
     }
 }
