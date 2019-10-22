@@ -17,13 +17,13 @@
     <section class="navbar">
       <div id="myTopnav" class="nav">
         <ul>
+          <li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
           <li class="pags active"><a href="#top">Inicio</a></li>
           <?php
             foreach ($shops as $shop) {
               echo("<li class='pags active'><a href='" . route('productos',$shop) . "'>$shop->name</a></li>");
             }
           ?>
-          <li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
           <li class="pags dropdown">
             <a class="dropbtn" href="#">Centro</a>
             <div class="dropdown-content">
