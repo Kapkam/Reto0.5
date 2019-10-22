@@ -191,7 +191,7 @@ var dict = {
 		es: "Suscríbete para no perderte nada",
 		en: "Suscribe to not miss anything"
 	},
-	"Suscribe-btn": {
+	"suscribe btn": {
 		es: "Suscribirse",
 		en: "Suscribe"
 	},
