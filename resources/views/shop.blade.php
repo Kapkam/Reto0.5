@@ -7,7 +7,7 @@
 <html lang="en" dir="ltr">
 <head>
 	<title>Tienda</title>
-	<link rel="stylesheet" type="text/css" href="../css/tiendas.css">
+	<link rel="stylesheet" type="text/css" href="{{url('css/tiendas.css')}}">
 
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.translate.js') }}"></script>
@@ -15,13 +15,13 @@
 	<script type="text/javascript" src="{{ URL::asset('js/diccionario.js') }}"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"><!--Fuente personalizada-->
-	<link rel="icon" type="image/png" href="../img/favicon.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="{{url('img/favicon.png')}}" sizes="32x32">
 	<meta charset="utf-8">
 </head>
 <body>
-	<input class="trad" type="image" src="../img/ingles.png" width="3%" value="Ingles" name="Ingles" onclick="ingles()">
-	<input class="trad" type="image" src="../img/español.png" width="3%"value="Castellano" name="Castellano" onclick="castellano()">
-	<img src="../img/maxcenter.png">
+	<input class="trad" type="image" src="{{ URL::asset('img/ingles.png')}}" width="3%" value="Ingles" name="Ingles" onclick="ingles()">
+	<input class="trad" type="image" src="{{ URL::asset('img/español.png')}}" width="3%"value="Castellano" name="Castellano" onclick="castellano()">
+	<img src="{{ URL::asset('/img/maxcenter.png') }}">
 	<div id="contenedor">
 
 		<ul>
@@ -39,28 +39,35 @@
 		<!--Fin botones ocultos-->
 
 		<div id="logoSmall">
-			<img src="../img/<?php echo(strtolower($_SESSION["shop"]->name)); ?>-logo.png" >
+			<img src="../../img/<?php echo(strtolower($_SESSION['shop']->name)); ?>-logo.png">
 		</div>
-		<form action="{{route('añadirProducto')}}"method='get'>
+		<form action="{{route('añadirProducto')}}" method='get'>
 			<input type='submit' value='Añadir un producto'>
 		</form>
-		<form action="{{route('consulta')}}" method='get'>
-			<input type='submit' value='Relizar una consulta'>
+		<form action="{{route('formularioConsulta')}}" method='get'>
+			<input type='submit' value='Realizar una consulta'>
 		</form>
 		<article>
-			<?php
-				foreach ($_SESSION["products"] as $product) {
-					echo"<section>"
-						. "<img src='../img/" . $product->img ." '>"
-						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->name . "</h4>"
-						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->description . "</h4>"
-						. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->stock . "</h4>"
-						. "</section>"
-						. "<button href='/products/{" . $product->shop_id ."}/{" . $product->id . "}'>Eliminar button</button>"
-						. "<form action='" . "{{route('eliminarProducto'," . $product->shop_id . "," . $product->id . ")}}" . "' method='delete'><input type='submit' value='Eliminar'></form>";
-						/*. "<form action='" . "{{route('modificarProducto')}}" . "' method='get'><input type='submit' value='Modificar stock'></form>"*/
-				}
-			?>
+				@foreach ($_SESSION["products"] as $product)
+					<section>
+						<img src="/img/<?php echo $product->img; ?>">
+						<h4><?php echo($product->name); ?></h4>
+						<h4><?php echo($product->desription); ?></h4>
+						<h4><?php echo($product->stock); ?></h4>
+					</section>
+					<?php
+						$product_id = $product->id;
+					 	$shop_id = $product->shop_id;
+					?>
+					<form method="post" action="/productsdel/{{$shop_id}}/{{$product_id}}">
+						@csrf
+						<input type="submit" value="Eliminar">
+					</form>
+					<form method="post" action="/products/{{$shop_id}}/{{$product_id}}">
+						@csrf
+						<input type='submit' value='Modificar stock'>
+					</form>
+				@endforeach-
 		</article>
 	</div>
 

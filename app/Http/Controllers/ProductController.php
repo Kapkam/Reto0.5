@@ -82,9 +82,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$shop_id,$product_id)
     {
-        //
+      $product = Product::find($product_id);
+
+      return view('modprod',['shop_id' => $shop_id,'product' => $product]);
     }
 
     /**
@@ -94,22 +96,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$shop_id,$product_id)
     {
-      $product = Product::find($id);
+      $product = Product::find($product_id);
 
-      $product->name = $request->name;
-      $product->description = $request->description;
-      $product->img = $request->img;
       $product->stock = $request->stock;
-      $product->links = $request->links;
-      $product->shop_id = $request->shop_id;
 
       $product->save();
 
-      $products = Product::all();
+      $products = Product::all()->where("shop_id","=",$shop_id);
 
-      $shop = Shop::find($request->shop_id);
+      $shop = Shop::find($shop_id);
 
       return view('shop' , ['products' => $products,'shop' => $shop]);
     }
@@ -120,20 +117,16 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($shop_id,$id)
+    public function destroy(Request $request,$shop_id,$product_id)
     {
       $shop = Shop::find($shop_id);
 
-      Product::where('id',$id)->delete();
+      Product::find($product_id)->delete();
 
-      $products = Product::all()->where ("shop_id","=",$shop_id);
+      $products = Product::all()->where("shop_id","=",$shop_id);
 
       return view('shop' , ['products' => $products,'shop' => $shop]);
     }
-
-    /*public function modificar(Request $request,$shop_id,$product_id){
-      return view('modStock',['shop_id' => $shop_id,'product_id' => $product_id]);
-    }*/
 
     public function listaProductos($shop_id)
     {

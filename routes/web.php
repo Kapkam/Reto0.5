@@ -19,17 +19,13 @@ Route::get('/create', 'ProductController@create')->name('añadirProducto');
 
 Route::post('/products/{shop}', 'ProductController@store')->name('insertarProducto');
 
-/*Route::get('/products/{shop}/{product}','ProductController@modificar')->name('modificarProducto');*/
+Route::post('/products/{shop_id}/{product_id}','ProductController@edit')->name('formularioModificar');
 
-Route::/*put*/patch('/products/{shop}/{product}', 'ProductController@update');
+Route::post('/productsmod/{shop_id}/{product_id}', 'ProductController@update')->name('modificar');
 
-Route::get('/products/{shop}/{product}', 'ProductController@destroy')->name('eliminarProducto');
+Route::post('/productsdel/{shop_id}/{product_id}', 'ProductController@destroy')->name('eliminarProducto');
 
-Route::get('/consulta', 'ProductController@formularioConsulta')->name('consulta');
-
-Route::get('/stock', function(){
-  return view('stock');
-});
+Route::get('/consulta', 'ProductController@formularioConsulta')->name('formularioConsulta');
 
 Route::post('/resultados', 'ProductController@consulta')->name('resultados');
 

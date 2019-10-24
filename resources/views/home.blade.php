@@ -11,7 +11,7 @@
 	  <script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
 	  <script type="text/javascript" src="{{ URL::asset('js/diccionario.js') }}"></script>
     <title>MaxCenter</title>
-    <link rel="icon" type="image/png" href="../../img/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="url('/img/favicon.png') " sizes="32x32">
   </head>
   <body>
     <section class="navbar">
@@ -19,11 +19,9 @@
         <ul>
           <li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
           <li class="pags active"><a href="#top">Inicio</a></li>
-          <?php
-            foreach ($shops as $shop) {
-              echo("<li class='pags active'><a href='" . route('productos',$shop) . "'>$shop->name</a></li>");
-            }
-          ?>
+            @foreach ($shops as $shop)
+              <li class='pags active'><a href="{{route('productos',$shop->id)}}"><?php echo($shop->name); ?></a></li>
+            @endforeach
           <li class="pags dropdown">
             <a class="dropbtn" href="#">Centro</a>
             <div class="dropdown-content">
