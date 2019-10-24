@@ -308,6 +308,32 @@ iframe{
 .footer h1{
   margin-top: 1.5em;
 }
+/* productos */
+.shop{
+  margin-top: 8em;
+}
+
+.col{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.col input{
+  cursor: pointer;
+  border: none;
+  color: #fff !important;
+  padding: 0.5em 1em;
+  background: #f52b07;
+  position: relative;
+}
+.col1{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.col2{
+  margin-bottom: 5em;
+}
 /* Responsive mediaquery */
 @media only screen and (max-width: 800px) {
 /* navbar */

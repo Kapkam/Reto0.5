@@ -137,11 +137,12 @@ class ProductController extends Controller
 
     public function listaProductos($shop_id)
     {
+      $shops = Shop::all();
       $products = Product::all()->where ("shop_id","=",$shop_id);
 
       $shop = Shop::find($shop_id);
 
-      return view('shop', ['products' => $products,'shop' => $shop]);
+      return view('shop', ['products' => $products,'shop' => $shop,'shops' => $shops]);
     }
 
     public function formularioConsulta(){
