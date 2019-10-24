@@ -121,6 +121,13 @@ class ProductController extends Controller
     {
       $shop = Shop::find($shop_id);
 
+      $product = Product::find($product_id);
+
+      $img = $product->img;
+      if (!is_null($img)){
+        unlink("/home/ubuntu/ProyectosLaravel/Reto0.5/public/img/" . $img);
+      }
+
       Product::find($product_id)->delete();
 
       $products = Product::all()->where("shop_id","=",$shop_id);
