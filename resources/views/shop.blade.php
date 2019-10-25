@@ -49,8 +49,8 @@
 							}
 						?>
 						<h4><?php echo($product->name); ?></h4>
-						<h4><?php echo($product->desription); ?></h4>
-						<h4><?php echo($product->stock); ?></h4>
+						<h4><?php echo($product->description); ?></h4>
+						<h4>Stock: <?php echo($product->stock); ?></h4>
 					<?php
 						$product_id = $product->id;
 					 	$shop_id = $product->shop_id;
