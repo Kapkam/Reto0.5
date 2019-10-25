@@ -46,27 +46,6 @@
 						</div>
 					</section>
 				@endforeach-
-				<!-- <?php
-				foreach ($products as $product) {
-					echo"<section>"
-							. "<div class='container'>"
-							. "<div class='tiendas'>"
-							. "<div class='tarjeta'>"
-							. "<p> ".$product."</p>"
-							. "<img src='../../img/ ".$product->img."'>"
-							. "<h2 class='trn' data-trn-key='T-SHIRT'>" . $product->name . "</h2>"
-							. "<p class='trn' data-trn-key='T-SHIRT'>" . $product->description . "</p>"
-							. "<h4 class='trn' data-trn-key='T-SHIRT'>" . $product->stock . "</h4>"
-							. "<div class='actions'>"
-							. "<form action='" . "{{route('eliminarProducto'," . $product->shop_id . "," . $product->id . ")}}" . "' method='delete'><input type='submit' value='Eliminar'></form>"
-							. "<form action='" . "{{route('formularioModificar'," . $product->shop_id . "," . $product->id . ")}}" . "><input type='submit' value='Modificar'></form>"
-							. "</div>"
-							. "</div>"
-							. "</div>"
-							. "</div>"
-							. "</section>";
-					}
-				 ?> -->
 			</article>
 		</div>
 	</div>

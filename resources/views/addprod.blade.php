@@ -1,15 +1,15 @@
 @extends('plantilla')
 @section('content')
 <section class="addproduct">
+	<div id="logoSmall">
+		<img src="img/<?php echo(strtolower($shop->name)); ?>-logo.png" >
+	</div>
 	<div id="contenedor">
 		<ul>
 			<li><a class="trn" data-trn-key="Add product" href="#">Añadir producto</a></li>
 			<li><a class="trn" data-trn-key="Check stock" href="#">Consultar stock</a></li>
 		</ul>
 
-		<div id="logoSmall">
-			<img src="img/<?php echo(strtolower($shop->name)); ?>-logo.png" >
-		</div>
 		<form method="post" enctype="multipart/form-data" action="{{route('insertarProducto',$shop->id)}}">
         @csrf
         <table border="1">
@@ -49,20 +49,19 @@
 	</div>
 
 	<script type="text/javascript">
-	var vid = document.getElementById("video"); //Variables para almacenar los datos de TODOS los campos
-	var nom = document.getElementById("nb");
-	var stock = document.getElementById("stock");
-	var img = document.getElementById("image");
+		var vid = document.getElementById("video"); //Variables para almacenar los datos de TODOS los campos
+		var nom = document.getElementById("nb");
+		var stock = document.getElementById("stock");
+		var img = document.getElementById("image");
 
-	function Producto(){
-		if (vid.value=="" || nom.value=="" || stock.value=="" || img.value=="" ) { //Comprobamos que los campos tienen algun valor
-			selec.innerHTML = "<p>Por favor, rellene todos los campos antes de continuar</p>";
+		function Producto(){
+			if (vid.value=="" || nom.value=="" || stock.value=="" || img.value=="" ) { //Comprobamos que los campos tienen algun valor
+				selec.innerHTML = "<p>Por favor, rellene todos los campos antes de continuar</p>";
+			}
+			else{ //Va devolviendo los valores obtenidos anterirormente
+				alert("Enviado los datos");
+			}
 		}
-		else{ //Va devolviendo los valores obtenidos anterirormente
-			alert("Enviado los datos");
-		}
-	}
-
-</script>
+	</script>
 </section>
 	@endsection
