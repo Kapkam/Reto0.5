@@ -31,21 +31,14 @@
 		  <li><a class="trn" data-trn-key="Location" href="#">Ubicacion</a></li>
 		</ul>
 
-		<!--Botones ocultos-->
-		<input type="button" name="a" class="moss boton" id="a" value="Añadir producto">
-		<input type="button" name="b" class="moss boton" id="b" value="Eliminar producto">
-		<input type="button" name="c" class="moss boton" id="c" value="Modificar stock">
-		<input type="button" name="d" class="moss boton" id="d" value="Consultar stock">
-		<!--Fin botones ocultos-->
-
 		<div id="logoSmall">
 			<img src="../../img/<?php echo(strtolower($_SESSION['shop']->name)); ?>-logo.png">
 		</div>
 		<form action="{{route('añadirProducto')}}" method='get'>
-			<input type='submit' value='Añadir un producto'>
+			<input type='submit' class="boton" id="botrad" value='Añadir un producto'>
 		</form>
 		<form action="{{route('formularioConsulta')}}" method='get'>
-			<input type='submit' value='Realizar una consulta'>
+			<input type='submit' class="boton" id="botcon" value='Realizar una consulta'>
 		</form>
 		<article>
 				@foreach ($_SESSION["products"] as $product)
@@ -61,11 +54,11 @@
 					?>
 					<form method="post" action="/productsdel/{{$shop_id}}/{{$product_id}}">
 						@csrf
-						<input type="submit" value="Eliminar">
+						<input type="submit" class="boton" id="delete" value="Eliminar">
 					</form>
 					<form method="post" action="/products/{{$shop_id}}/{{$product_id}}">
 						@csrf
-						<input type='submit' value='Modificar stock'>
+						<input type='submit' class="boton" id="modify" value='Modificar stock'>
 					</form>
 				@endforeach-
 		</article>
