@@ -41,7 +41,7 @@
 				<td>
 					<form action="{{route('productos',$_SESSION['shop']->id)}}" method="get">
 						@csrf
-						<input class="boton" type="submit" value="Volver a la tienda">
+						<input class="boton3" type="submit" value="Volver a la tienda">
 					</form>
 				</td>
 			</tr>

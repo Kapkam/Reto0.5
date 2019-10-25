@@ -46,12 +46,11 @@
           </tr>
 					<tr>
 						<td>
-							<input class="boton" id="botcon" type="submit" value="Realizar consulta" name="boton" onclick="Producto()">
+							<input class="boton3" id="botcon" type="submit" value="Realizar consulta" name="boton" onclick="Producto()">
 						</td>
 					</tr>
 				</table>
 			</form>
-			<p  id="seleccion"></p>
 	</div>
 
 </body>

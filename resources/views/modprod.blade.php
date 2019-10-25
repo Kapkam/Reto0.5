@@ -46,7 +46,7 @@
 					</tr>
 
 					</table>
-					<input id="bottrad" class="boton" type="submit" value="Modificar producto" name="boton" onclick="Producto()">
+					<input id="bottrad" class="boton3" type="submit" value="Modificar producto" name="boton" onclick="Producto()">
 				</form>
 				<p id="seleccion"></p>
 	</div>

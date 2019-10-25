@@ -35,10 +35,10 @@
 			<img src="../../img/<?php echo(strtolower($_SESSION['shop']->name)); ?>-logo.png">
 		</div>
 		<form action="{{route('añadirProducto')}}" method='get'>
-			<input type='submit' class="boton" id="bottrad" value='Añadir un producto'>
+			<input type='submit' class="boton2" id="bottrad" value='Añadir un producto'>
 		</form>
 		<form action="{{route('formularioConsulta')}}" method='get'>
-			<input type='submit' class="boton" id="botcon" value='Realizar una consulta'>
+			<input type='submit' class="boton2" id="botcon" value='Realizar una consulta'>
 		</form>
 		<article class="articulo">
 				@foreach ($_SESSION["products"] as $product)
