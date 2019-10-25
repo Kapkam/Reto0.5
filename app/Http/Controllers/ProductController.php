@@ -55,7 +55,6 @@ class ProductController extends Controller
       $product->stock = $request->input('stock');
       $product->links = $request->input('links');
       $product->shop_id = $shop_id;
-      echo var_export($product,true);
       $product->save();
 
       $products = Product::all()->where ("shop_id","=",$shop_id);
