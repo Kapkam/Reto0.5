@@ -23,9 +23,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($shop_id)
     {
-      return view('addprod');
+      $shops = Shop::all();
+      $shop = Shop::find($shop_id);
+      return view('addprod',['shop'=> $shop,'shops'=> $shops]);
     }
 
     /*action='insertarProducto'*/
@@ -39,12 +41,16 @@ class ProductController extends Controller
     public function store(Request $request, $shop_id)
     {
       $product = new Product;
-
+      // echo var_export($request,true)."\n";
+      // echo "*****".var_export($request->file('img')->isValid(),true)."\n";
+      // echo "/////".var_export($request->file('img')->getClientOriginalName(),true)."\n";
+      // echo var_export(substr($request->file('img')->getMimeType(), 0, 5),true);
       if ($request->hasFile('img')) {
         if(substr($request->file('img')->getMimeType(), 0, 5) == 'image') {
           if ($request->file('img')->isValid()){
             $img = $request->file('img')->getClientOriginalName();
             $request->file('img')->move('img',$img);
+            echo "53\n";
             $product->img = $img;
           }
         }
@@ -55,7 +61,10 @@ class ProductController extends Controller
       $product->stock = $request->input('stock');
       $product->links = $request->input('links');
       $product->shop_id = $shop_id;
-
+      echo "64\n";
+      echo var_export($request,true);
+      echo var_export($shop_id,true);
+      echo var_export($product,true);
       $product->save();
 
       $products = Product::all()->where ("shop_id","=",$shop_id);

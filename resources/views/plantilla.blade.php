@@ -17,7 +17,16 @@
 		<script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
     <title>MaxCenter</title>
 		<link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}" sizes="32x32">
+		<script>
+			$(document).ready(function(){
 
+				$("#modificar").click(function(){
+					$("#crear").toggle(1000);
+				$("#modify").toggle(1000);
+
+				});
+			});
+		</script>
   </head>
   <body>
     <!-- Incluimos el header -->

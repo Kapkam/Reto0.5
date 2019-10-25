@@ -334,6 +334,18 @@ iframe{
 .col2{
   margin-bottom: 5em;
 }
+.actions{
+  display: flex;
+  justify-content: space-around;
+}
+#logoSmall{
+  text-align: center;
+}
+#logoSmall img{
+  margin-bottom: 3em;
+  width: 250px;
+  height: 100px;
+}
 /* Responsive mediaquery */
 @media only screen and (max-width: 800px) {
 /* navbar */

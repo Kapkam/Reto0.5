@@ -15,7 +15,7 @@ Route::get('/', 'ShopController@index')->name('home');
 
 Route::get('/products/{shop}', 'ProductController@listaProductos')->name('productos');
 
-Route::get('/create', 'ProductController@create')->name('añadirProducto');
+Route::get('/create/{shop_id}', 'ProductController@create')->name('añadirProducto');
 
 Route::post('/products/{shop}', 'ProductController@store')->name('insertarProducto');
 
