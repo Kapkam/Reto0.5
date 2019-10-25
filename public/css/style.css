@@ -2,6 +2,7 @@
 *{
   padding: 0px;
   margin: 0px;
+  font-family: 'Roboto', sans-serif;
 }
 html {
   scroll-behavior: smooth;
@@ -66,6 +67,19 @@ html {
   display: block;
 }
 /* Body */
+#cuerpo {
+  background: linear-gradient(169deg, #FFF 0%, #EEE 51%, #DDD 75%);
+  background-image: url(../img/background.png);
+}
+#logoSmall{
+	width: 20%;
+	border: 2px solid black;
+	margin: 2%;
+	margin-left: 4%;
+}
+#logoSmall img{
+	width: 100%;
+}
 /* boton general */
 button {
   color: #fff !important;
@@ -86,6 +100,19 @@ button:before {
 button:hover:before {
 width: 100%;
 }
+.trad{
+	float: right;
+}
+.boton{
+	border: 1px solid black;
+	background-color: white;
+	border-radius: 10%;
+	filter: drop-shadow(2px 2px 4px);
+	padding: 5px;
+	font-weight: bolder;
+	margin-left: 50%;
+}
+
 /* fin boton general */
 .banner{
   width: 100%;
@@ -307,6 +334,88 @@ iframe{
 }
 .footer h1{
   margin-top: 1.5em;
+}
+/* CSS tiendas */
+.articulo{
+	width: 75%;
+	float: right;
+}
+.seccion{
+	background-color:rgba(0,0,0,0);
+	float: left;
+	border: 2px solid rgb(66, 70, 75);
+	width: 25%;
+	margin: 1%;
+	transition: 0.5s;
+}
+.seccion:hover{
+	border: 2px solid black;
+}
+.seccion img{
+	width: 100%;
+}
+.seccion img:hover{
+	width: 100%;
+	filter:drop-shadow(5px 5px 7px gray);
+}
+h4{
+	text-align: center;
+	border-top: 1px solid black;
+	color: white;
+	background-color: black;
+}
+h4:hover{
+	text-align: center;
+	border-top: 1px solid black;
+	color: black;
+	background-color: white;
+}
+
+h5, h6{
+	text-align: center;
+	border:1px solid black;
+	text-shadow: 2px 2px 3px gray;
+	padding: 3px;
+}
+h6{
+	font-size: 0.8em;
+}
+h5{
+	font-size: 1.2em;
+}
+h5:hover,h6:hover{
+	background-color: ghostwhite;
+}
+.navegador {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(120deg, #df001e , #04398e);
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  text-shadow: 2px 2px 2px black;
+}
+
+table{
+	margin-left: 40%;
+	background: linear-gradient(169deg, #FFF, #AAA);
+	font-weight: bolder;
+	text-align: center;
+	filter:drop-shadow(5px 5px 7px gray);
+}
+form{
+	display: inline-block;
 }
 /* Responsive mediaquery */
 @media only screen and (max-width: 800px) {

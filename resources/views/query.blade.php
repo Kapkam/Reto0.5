@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>Consulta</title>
-	<link rel="stylesheet" type="text/css" href="../css/tiendas.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type="text/javascript" src="../js/jquery.translate.js"></script> <!--Archivo traductor-->
@@ -13,12 +13,12 @@
 	<meta charset="utf-8">
 
 </head>
-<body>
-	<input class="trad" type="image" src="{{ URL::asset('/img/ingles.png')}}" width="3%" value="Ingles" name="Ingles" onclick="ingles()">
-	<input class="trad" type="image" src="{{ URL::asset('/img/español.png')}}" width="3%"value="Castellano" name="Castellano" onclick="castellano()">
+<body id="cuerpo">
+<input class="trad" type="button" width="4%" value="Ingles" name="Ingles" onclick="ctrlIng()">
+	<input class="trad" type="button" width="3%"value="Castellano" name="Castellano" onclick="ctrlEsp()">
 	<img src="../img/maxcenter.png">
 	<div id="contenedor">
-		<ul>
+		<ul class="navegador">
 		  <li><a class="trn" data-trn-key="Add product" href="{{route('añadirProducto')}}">Añadir producto</a></li>
 		  <li><a class="trn" data-trn-key="Check stock" href="{{route('formularioConsulta')}}">Consultar stock</a></li>
 		</ul>

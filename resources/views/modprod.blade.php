@@ -16,14 +16,14 @@
 	<meta charset="utf-8">
 
 </head>
-<body>
-	<input class="trad" type="button" width="3%" value="Ingles" name="Ingles" onclick="ctrlIng()">
+<body id="cuerpo">
+<input class="trad" type="button" width="4%" value="Ingles" name="Ingles" onclick="ctrlIng()">
 	<input class="trad" type="button" width="3%"value="Castellano" name="Castellano" onclick="ctrlEsp()">
 	<img src="../../img/maxcenter.png">
 	<div id="contenedor">
-		<ul>
-		  <li><a class="trn" data-trn-key="Add product" href="#">Añadir producto</a></li>
-		  <li><a class="trn" data-trn-key="Check stock" href="#">Consultar stock</a></li>
+		<ul class="navegador">
+		  <li><a class="trn" data-trn-key="Add product" href="{{route('añadirProducto')}}">Añadir producto</a></li>
+		  <li><a class="trn" data-trn-key="Check stock" href="{{route('formularioConsulta')}}">Consultar stock</a></li>
 		</ul>
 
 		<div id="logoSmall">
@@ -61,10 +61,6 @@
 			if (mod_stock.value=="" ) {
 				selec.innerHTML = "<p>Por favor, rellene todos los campos antes de continuar/Please, complete the form before continuing </p>";
 			}
-			else{
-			//Va devolviendo los valores obtenidos anterirormente
-			selec.innerHTML = "<p></p>";
-        	}
 		}
 	</script>
 

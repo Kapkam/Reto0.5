@@ -7,7 +7,7 @@
 <html lang="en" dir="ltr">
 <head>
 	<title>Tienda</title>
-	<link rel="stylesheet" type="text/css" href="{{url('css/tiendas.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
 
 	<script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
@@ -19,16 +19,16 @@
 	<link rel="icon" type="image/png" href="{{url('img/favicon.png')}}" sizes="32x32">
 	<meta charset="utf-8">
 </head>
-<body>
-	<input class="trad" type="button" width="3%" value="Ingles" name="Ingles" onclick="ctrlIng()">
+<body id="cuerpo">
+	<input class="trad" type="button" width="4%" value="Ingles" name="Ingles" onclick="ctrlIng()">
 	<input class="trad" type="button" width="3%"value="Castellano" name="Castellano" onclick="ctrlEsp()">
 	<img src="{{ URL::asset('/img/maxcenter.png') }}">
 	<div id="contenedor">
 
-		<ul>
+		<ul class="navegador">
 		  <li><a class="trn" data-trn-key="Home" href="{{route('home')}}">Inicio</a></li>
-		  <li><a class="trn" data-trn-key="Contact" href="">Contacto</a></li>
-		  <li><a class="trn" data-trn-key="Location" href="">Ubicacion</a></li>
+		  <li><a class="trn" data-trn-key="Contact" href="{{route('home')}}#contacto">Contacto</a></li>
+		  <li><a class="trn" data-trn-key="Location" href="{{route('home')}}#mapa">Ubicacion</a></li>
 		</ul>
 
 		<div id="logoSmall">
@@ -40,14 +40,13 @@
 		<form action="{{route('formularioConsulta')}}" method='get'>
 			<input type='submit' class="boton" id="botcon" value='Realizar una consulta'>
 		</form>
-		<article>
+		<article class="articulo">
 				@foreach ($_SESSION["products"] as $product)
-					<section>
+					<section class="seccion">
 						<img src="/img/<?php echo $product->img; ?>">
 						<h4><?php echo($product->name); ?></h4>
 						<h4><?php echo($product->desription); ?></h4>
 						<h4><?php echo($product->stock); ?></h4>
-					</section>
 					<?php
 						$product_id = $product->id;
 					 	$shop_id = $product->shop_id;
@@ -60,7 +59,8 @@
 						@csrf
 						<input type='submit' class="boton" id="modify" value='Modificar stock'>
 					</form>
-				@endforeach-
+					</section>
+				@endforeach
 		</article>
 	</div>
 	<script>
