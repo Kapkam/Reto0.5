@@ -43,7 +43,11 @@
 		<article class="articulo">
 				@foreach ($_SESSION["products"] as $product)
 					<section class="seccion">
-						<img src="/img/<?php echo $product->img; ?>">
+						<?php
+							if (!empty($product->img)){
+								echo("<img src='/img/" . $product->img . "'>");
+							}
+						?>
 						<h4><?php echo($product->name); ?></h4>
 						<h4><?php echo($product->desription); ?></h4>
 						<h4><?php echo($product->stock); ?></h4>
