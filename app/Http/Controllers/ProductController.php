@@ -44,7 +44,7 @@ class ProductController extends Controller
         if(substr($request->file('img')->getMimeType(), 0, 5) == 'image') {
           if ($request->file('img')->isValid()){
             $img = $request->file('img')->getClientOriginalName();
-            $request->file('img')->move('img',$img);
+            $request->file('img')->move('img/',$img);
             $product->img = $img;
           }
         }

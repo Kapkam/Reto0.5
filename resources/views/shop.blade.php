@@ -9,6 +9,7 @@
 	<title>Tienda</title>
 	<link rel="stylesheet" type="text/css" href="{{url('css/tiendas.css')}}">
 
+	<script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.translate.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/translatejs.jquery.json') }}"></script>
@@ -19,23 +20,22 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<input class="trad" type="image" src="{{ URL::asset('img/ingles.png')}}" width="3%" value="Ingles" name="Ingles" onclick="ingles()">
-	<input class="trad" type="image" src="{{ URL::asset('img/español.png')}}" width="3%"value="Castellano" name="Castellano" onclick="castellano()">
+	<input class="trad" type="button" width="3%" value="Ingles" name="Ingles" onclick="ctrlIng()">
+	<input class="trad" type="button" width="3%"value="Castellano" name="Castellano" onclick="ctrlEsp()">
 	<img src="{{ URL::asset('/img/maxcenter.png') }}">
 	<div id="contenedor">
 
 		<ul>
-		  <li><a class="trn" data-trn-key="Home" href="#">Inicio</a></li>
-		  <li><a class="trn" data-trn-key="Store" href="#">Tiendas</a></li>
-		  <li><a class="trn" data-trn-key="Contact" href="#">Contacto</a></li>
-		  <li><a class="trn" data-trn-key="Location" href="#">Ubicacion</a></li>
+		  <li><a class="trn" data-trn-key="Home" href="{{route('home')}}">Inicio</a></li>
+		  <li><a class="trn" data-trn-key="Contact" href="">Contacto</a></li>
+		  <li><a class="trn" data-trn-key="Location" href="">Ubicacion</a></li>
 		</ul>
 
 		<div id="logoSmall">
 			<img src="../../img/<?php echo(strtolower($_SESSION['shop']->name)); ?>-logo.png">
 		</div>
 		<form action="{{route('añadirProducto')}}" method='get'>
-			<input type='submit' class="boton" id="botrad" value='Añadir un producto'>
+			<input type='submit' class="boton" id="bottrad" value='Añadir un producto'>
 		</form>
 		<form action="{{route('formularioConsulta')}}" method='get'>
 			<input type='submit' class="boton" id="botcon" value='Realizar una consulta'>
@@ -63,6 +63,11 @@
 				@endforeach-
 		</article>
 	</div>
+	<script>
+	if ( window.history.replaceState ) {
+  		window.history.replaceState( null, null, window.location.href );
+	}
+</script>
 
 </body>
 </html>

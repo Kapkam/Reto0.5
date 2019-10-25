@@ -19,8 +19,8 @@
 	<img src="../img/maxcenter.png">
 	<div id="contenedor">
 		<ul>
-		  <li><a class="trn" data-trn-key="Add product" href="#">Añadir producto</a></li>
-		  <li><a class="trn" data-trn-key="Check stock" href="#">Consultar stock</a></li>
+		  <li><a class="trn" data-trn-key="Add product" href="{{route('añadirProducto')}}">Añadir producto</a></li>
+		  <li><a class="trn" data-trn-key="Check stock" href="{{route('formularioConsulta')}}">Consultar stock</a></li>
 		</ul>
 
 		<div id="logoSmall">
@@ -42,15 +42,10 @@
             </td>
           </tr>
 				</table>
-				<input class="boton" type="submit" value="Realizar consulta" name="boton" onclick="Producto()">
+				<input class="boton" id="botcon" type="submit" value="Realizar consulta" name="boton" onclick="Producto()">
 			</form>
 			<p  id="seleccion"></p>
 	</div>
-
-		<ul>
-		  <li><a class="trn" data-trn-key="Add product" href="#">Añadir producto</a></li>
-		  <li><a class="trn" data-trn-key="Check stock" href="#">Consultar stock</a></li>
-		</ul>
 
 </body>
 </html>

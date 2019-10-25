@@ -15,26 +15,14 @@
 	<link rel="icon" type="image/png" href="url('/img/favicon.png')" sizes="32x32">
 	<meta charset="utf-8">
 
-	<script>
-		$(document).ready(function(){
-
-		  $("#modificar").click(function(){
-		    $("#crear").toggle(1000);
-			$("#modify").toggle(1000);
-
-		  });
-		});
-	</script>
-
 </head>
 <body>
-	<input class="trad" type="image" src="{{ URL::asset('/img/ingles.png')}}" width="3%" value="Ingles" name="Ingles" onclick="ctrlIng()">
-	<input class="trad" type="image" src="{{ URL::asset('/img/español.png')}}" width="3%"value="Castellano" name="Castellano" onclick="ctrlEsp()">
+	<input class="trad" type="button" width="3%" value="Ingles" name="Ingles" onclick="ctrlIng()">
+	<input class="trad" type="button" width="3%"value="Castellano" name="Castellano" onclick="ctrlEsp()">
 	<img src="../../img/maxcenter.png">
 	<div id="contenedor">
 		<ul>
 		  <li><a class="trn" data-trn-key="Add product" href="#">Añadir producto</a></li>
-		  <li><a class="trn" data-trn-key="Modify stock" href="#">Modificar stock</a></li>
 		  <li><a class="trn" data-trn-key="Check stock" href="#">Consultar stock</a></li>
 		</ul>
 
