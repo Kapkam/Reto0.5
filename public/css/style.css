@@ -67,11 +67,6 @@ html {
   display: block;
 }
 /* Body */
-#cuerpo {
-  background: linear-gradient(169deg, #FFF 0%, #EEE 51%, #DDD 75%);
-  background-image: url(../img/background.png);
-  background-repeat: no-repeat;
-}
 #logoSmall{
 	width: 20%;
 	border: 2px solid black;
@@ -428,6 +423,13 @@ table{
 }
 form{
 	display: inline-block;
+}
+/* shop */
+.shop{
+  margin-top: 8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 /* Responsive mediaquery */
 @media only screen and (max-width: 800px) {

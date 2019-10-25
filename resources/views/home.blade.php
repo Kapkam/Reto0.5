@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+  $_SESSION["shops"] = $shops;?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -18,8 +19,8 @@
       <div id="myTopnav" class="nav">
         <ul>
           <li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
-          <li class="pags active"><a href="#top">Inicio</a></li>
-            @foreach ($shops as $shop)
+          <li class="pags active"><a href="{{route('home')}}">Inicio</a></li>
+            @foreach ($_SESSION["shops"] as $shop)
               <li class='pags active'><a href="{{route('productos',$shop->id)}}"><?php echo($shop->name); ?></a></li>
             @endforeach
           <li class="pags dropdown">

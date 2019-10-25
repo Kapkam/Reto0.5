@@ -17,15 +17,27 @@
 
 </head>
 <body id="cuerpo">
-	<input class="trad" type="button" width="4%" value="Ingles" name="Ingles" onclick="ctrlIng()">
-	<input class="trad" type="button" width="3%"value="Castellano" name="Castellano" onclick="ctrlEsp()">
-	<img src="../img/maxcenter.png">
-	<div id="contenedor">
-	<ul class="navegador">
-		  <li><a class="trn" data-trn-key="Add product" href="{{route('añadirProducto')}}">Añadir producto</a></li>
-		  <li><a class="trn" data-trn-key="Check stock" href="{{route('formularioConsulta')}}">Consultar stock</a></li>
-		</ul>
-
+	<section class="navbar">
+		<div id="myTopnav" class="nav">
+			<ul>
+				<li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
+				<li class="pags active"><a href="{{route('home')}}">Inicio</a></li>
+					@foreach ($_SESSION["shops"] as $shop)
+						<li class='pags active'><a href="{{route('productos',$shop->id)}}"><?php echo($shop->name); ?></a></li>
+					@endforeach
+				<li class="pags dropdown">
+					<a class="dropbtn" href="#">Centro</a>
+					<div class="dropdown-content">
+						<a href="#horario">Horario</a>
+						<a href="#mapa">Mapa</a>
+						<a href="#contacto">Contáctanos</a>
+					</div>
+				</li>
+				<li class="icon"><a href="javascript:void(0);" onclick="myFunction()"><img src="{{ url('/img/bars.png') }}" alt="bras"></a></li>
+			</ul>
+		</div>
+	</section>
+	<section class="shop">
 		<div id="logoSmall">
 			<img src="../img/<?php echo(strtolower($_SESSION["shop"]->name)); ?>-logo.png" >
 		</div>
@@ -47,6 +59,34 @@
 			</tr>
     </table>
 	</div>
-
+	</section>
+	<section class="footer">
+		<div class="tgfo">
+			<div class="tgfo1">
+				<h2>Soporte</h2>
+				<p>Correo electrónico</p>
+				<p>Asistencia Tel.</p>
+			</div>
+			<div class="tgfo2">
+				<h2>Servicios</h2>
+				<p>Cines</p>
+				<p>Bolera</p>
+				<p>Tiendas/Restaurantes</p>
+			</div>
+			<h1>MAXCENTER</h1>
+			<div class="tgfo3">
+				<h2>Síguenos</h2>
+				<p>Facebook</p>
+				<p>Twitter</p>
+				<p>Instagram</p>
+			</div>
+			<div class="tgfo4">
+				<h2>Términos Legales</h2>
+				<p>Política de Privacidad</p>
+				<p>Condiciones de compra</p>
+				<p>© Sonae Sierra 2019 Todos los derechos reservados</p>
+			</div>
+		</div>
+	</section>
 </body>
 </html>

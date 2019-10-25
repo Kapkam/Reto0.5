@@ -20,53 +20,101 @@
 	<meta charset="utf-8">
 </head>
 <body id="cuerpo">
-	<input class="trad" type="button" width="4%" value="Ingles" name="Ingles" onclick="ctrlIng()">
-	<input class="trad" type="button" width="3%"value="Castellano" name="Castellano" onclick="ctrlEsp()">
-	<img src="{{ URL::asset('/img/maxcenter.png') }}">
-	<div id="contenedor">
-
-		<ul class="navegador">
-		  <li><a class="trn" data-trn-key="Home" href="{{route('home')}}">Inicio</a></li>
-		  <li><a class="trn" data-trn-key="Contact" href="{{route('home')}}#contacto">Contacto</a></li>
-		  <li><a class="trn" data-trn-key="Location" href="{{route('home')}}#mapa">Ubicacion</a></li>
-		</ul>
-
+	<section class="navbar">
+		<div id="myTopnav" class="nav">
+			<ul>
+				<li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
+				<li class="pags active"><a href="{{route('home')}}">Inicio</a></li>
+					@foreach ($_SESSION["shops"] as $shop)
+						<li class='pags active'><a href="{{route('productos',$shop->id)}}"><?php echo($shop->name); ?></a></li>
+					@endforeach
+				<li class="pags dropdown">
+					<a class="dropbtn" href="#">Centro</a>
+					<div class="dropdown-content">
+						<a href="#horario">Horario</a>
+						<a href="#mapa">Mapa</a>
+						<a href="#contacto">Contáctanos</a>
+					</div>
+				</li>
+				<li class="icon"><a href="javascript:void(0);" onclick="myFunction()"><img src="{{ url('/img/bars.png') }}" alt="bras"></a></li>
+			</ul>
+		</div>
+	</section>
+	<section class="shop">
 		<div id="logoSmall">
 			<img src="../../img/<?php echo(strtolower($_SESSION['shop']->name)); ?>-logo.png">
 		</div>
-		<form action="{{route('añadirProducto')}}" method='get'>
-			<input type='submit' class="boton2" id="bottrad" value='Añadir un producto'>
-		</form>
-		<form action="{{route('formularioConsulta')}}" method='get'>
-			<input type='submit' class="boton2" id="botcon" value='Realizar una consulta'>
-		</form>
-		<article class="articulo">
-				@foreach ($_SESSION["products"] as $product)
-					<section class="seccion">
-						<?php
-							if (!empty($product->img)){
-								echo("<img src='/img/" . $product->img . "'>");
-							}
-						?>
-						<h4><?php echo($product->name); ?></h4>
-						<h4><?php echo($product->description); ?></h4>
-						<h4>Stock: <?php echo($product->stock); ?></h4>
-					<?php
-						$product_id = $product->id;
-					 	$shop_id = $product->shop_id;
-					?>
-					<form method="post" action="/productsdel/{{$shop_id}}/{{$product_id}}">
-						@csrf
-						<input type="submit" class="boton" id="delete" value="Eliminar">
-					</form>
-					<form method="post" action="/products/{{$shop_id}}/{{$product_id}}">
-						@csrf
-						<input type='submit' class="boton" id="modify" value='Modificar stock'>
-					</form>
-					</section>
-				@endforeach
-		</article>
+		<div class="container">
+			<div class="tiendas">
+				<div class="tarjeta">
+					<div class="col">
+						<form action="{{route('añadirProducto')}}" method='get'>
+							<input type='submit' class="boton2" id="bottrad" value='Añadir un producto'>
+						</form>
+						<form action="{{route('formularioConsulta')}}" method='get'>
+							<input type='submit' class="boton2" id="botcon" value='Realizar una consulta'>
+						</form>
+						<article class="articulo">
+							@foreach ($_SESSION["products"] as $product)
+							<section class="seccion">
+								<?php
+								if (!empty($product->img)){
+									echo("<img src='/img/" . $product->img . "'>");
+								}
+								?>
+								<h4><?php echo($product->name); ?></h4>
+								<h4><?php echo($product->description); ?></h4>
+								<h4>Stock: <?php echo($product->stock); ?></h4>
+								<?php
+								$product_id = $product->id;
+								$shop_id = $product->shop_id;
+								?>
+								<form method="post" action="/productsdel/{{$shop_id}}/{{$product_id}}">
+									@csrf
+									<input type="submit" class="boton" id="delete" value="Eliminar">
+								</form>
+								<form method="post" action="/products/{{$shop_id}}/{{$product_id}}">
+									@csrf
+									<input type='submit' class="boton" id="modify" value='Modificar stock'>
+								</form>
+							</section>
+							@endforeach
+						</article>
+
+				</div>
+			</div>
+		</div>
+		</div>
 	</div>
+	</section>
+	<section class="footer">
+		<div class="tgfo">
+			<div class="tgfo1">
+				<h2>Soporte</h2>
+				<p>Correo electrónico</p>
+				<p>Asistencia Tel.</p>
+			</div>
+			<div class="tgfo2">
+				<h2>Servicios</h2>
+				<p>Cines</p>
+				<p>Bolera</p>
+				<p>Tiendas/Restaurantes</p>
+			</div>
+			<h1>MAXCENTER</h1>
+			<div class="tgfo3">
+				<h2>Síguenos</h2>
+				<p>Facebook</p>
+				<p>Twitter</p>
+				<p>Instagram</p>
+			</div>
+			<div class="tgfo4">
+				<h2>Términos Legales</h2>
+				<p>Política de Privacidad</p>
+				<p>Condiciones de compra</p>
+				<p>© Sonae Sierra 2019 Todos los derechos reservados</p>
+			</div>
+		</div>
+	</section>
 	<script>
 	if ( window.history.replaceState ) {
   		window.history.replaceState( null, null, window.location.href );
