@@ -51,7 +51,7 @@
 				<tr>
 					<td class="trn" data-trn-key="Description:">Descripcion:</td>
 					<td>
-						<textarea id="dscp" onkeyup="this.value = this.value.replace(/[&*<>]/g, '')" name="descripcion"></textarea>
+						<textarea id="dscp" onkeyup="this.value = this.value.replace(/[&*<>]/g, '')" required name="descripcion"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -62,11 +62,11 @@
 				</tr>
 				<tr>
 					<td class="trn" data-trn-key="Stock">Stock</td>
-					<td><input min="0" name="stock" id="stock" type="number" name="stock_modificado" pattern="[^'\x22]+"></td>
+					<td><input min="0" name="stock" id="stock" type="number" name="stock_modificado" required pattern="[^'\x22]+"></td>
 				</tr>
 				<tr>
 					<td class="trn" data-trn-key="Videos">Videos</td>
-					<td><input onkeyup="this.value = this.value.replace(/[&*<>]/g, '')" name="links" id="Video" type="url" name="homepage"></td>
+					<td><input onkeyup="this.value = this.value.replace(/[&*<>]/g, '')" name="links" id="Video" type="url" required name="homepage"></td>
 				</tr>
 
 			</table>
