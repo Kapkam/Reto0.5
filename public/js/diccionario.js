@@ -211,6 +211,7 @@ function ingles(){
 	var con = document.getElementById('botcon');
 	var del = document.getElementById('delete');
 	var modify = document.getElementById('modify');
+	var ret = document.getElementById('return');
 	if (add) {
 		add.value = "Add product";
 	}
@@ -223,6 +224,9 @@ function ingles(){
 	if (modify) {
 		modify.value = "Modify stock";
 	}
+	if (ret) {
+		ret.value = "Return to the shop";
+	}
 }
 function castellano(){
 	var translator = $('body').translate({lang: "es", t: dict}); //use spanish
@@ -231,6 +235,7 @@ function castellano(){
 	var con = document.getElementById('botcon');
 	var del = document.getElementById('delete');
 	var modify = document.getElementById('modify');
+	var ret = document.getElementById('return');
 	if (add) {
 		add.value = "Añadir un producto";
 	}
@@ -242,5 +247,8 @@ function castellano(){
 	}
 	if (modify) {
 		modify.value = "Modificar stock";
+	}
+	if (ret) {
+		ret.value = "Volver a la tienda";
 	}
 }
