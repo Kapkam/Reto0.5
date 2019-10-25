@@ -3,16 +3,16 @@
 <html lang="es" dir="ltr">
 <head>
 	<title>Modificar producto</title>
-	<link rel="stylesheet" type="text/css" href="../../css/tiendas.css">
+	<link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
 
+	<script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.translate.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('js/translatejs.jquery.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/translatejs.jquery.json') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/diccionario.js') }}"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"><!--Fuente personalizada-->
-	<link rel="icon" type="image/png" href="url('/img/favicon.png')" sizes="32x32">
+	<link rel="icon" type="image/png" href="{{url('img/favicon.png')}}" sizes="32x32">
 	<meta charset="utf-8">
 
 </head>

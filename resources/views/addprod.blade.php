@@ -4,12 +4,15 @@
 <head>
 	<title>Añadir Producto</title>
 	<link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/jquery.translate.js"></script> <!--Archivo traductor-->
-	<script type="text/javascript" src="js/diccionario.js"></script> <!--Diccionaro de la pagina-->
+
+	<script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/jquery.translate.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/translatejs.jquery.json') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/diccionario.js') }}"></script>
+
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"><!--Fuente personalizada-->
-	<link rel="icon" type="image/png" href="url('/img/favicon.png')" sizes="32x32">
+	<link rel="icon" type="image/png" href="{{url('img/favicon.png')}}" sizes="32x32">
 	<meta charset="utf-8">
 
 </head>
