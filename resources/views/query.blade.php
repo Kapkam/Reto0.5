@@ -52,31 +52,41 @@
 		<div id="logoSmall">
 			<img src="../img/<?php echo(strtolower($_SESSION["shop"]->name)); ?>-logo.png" >
 		</div>
+		<div class="query">
 			<form method="post" action="{{route('resultados')}}">
 				@csrf
-				<table border="1">
-				  <tr>
-				    <td class="trn" data-trn-key="Product name">Nombre del producto</td>
-				    <td>
-                <?php
-                  echo("<select  onkeyup='this.value = this.value.replace(/[&*<>]/g, '')' name='id_producto' required pattern='[^'\x22]+' id='nb' size='1'>");
-                  foreach ($_SESSION["products"] as $product){
-                    echo("<option value='" . $product->id . "'>" . ucfirst($product->name) . "</option>");
-                  }
-                  echo("</select><input type='hidden' name='" . $product->name . "' value='" . $product->id . "'>");
-                ?>
-            </td>
-          </tr>
+				<table>
+					<tr>
+						<th colspan="2" class="trn" data-trn-key="Query">Realizar una Consulta</th>
+					</tr>
+					<tr>
+						<td class="trn" data-trn-key="Product name">Nombre del producto</td>
+						<td>
+							<?php
+							echo("<select  onkeyup='this.value = this.value.replace(/[&*<>]/g, '')' name='id_producto' required pattern='[^'\x22]+' id='nb' size='1'>");
+							foreach ($_SESSION["products"] as $product){
+								echo("<option value='" . $product->id . "'>" . ucfirst($product->name) . "</option>");
+							}
+							echo("</select><input type='hidden' name='" . $product->name . "' value='" . $product->id . "'>");
+							?>
+						</td>
+					</tr>
+					<tr>
+						<td class="trn" data-trn-key="Result"> Resultado de la consulta: 
+							<?php
+								echo($result ?? '');
+							?>
+						</td>
+					</tr>
 					<tr>
 						<td>
-							<input class="boton3" id="botcon" type="submit" value="Realizar consulta" name="boton" onclick="Producto()">
+							<input class="btn-query" id="botcon" type="submit" value="Realizar consulta" name="boton" onclick="Producto()">
 						</td>
 					</tr>
 				</table>
 			</form>
-	</div>
+		</div>
 	</section>
-
 	<section class="footer">
 		<div class="tgfo">
 			<div class="tgfo1">

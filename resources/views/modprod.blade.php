@@ -52,9 +52,13 @@
 		<div id="logoSmall">
 			<img src="../../img/Max-Center2.png" >
 		</div>
-				<form method="post" action="/productsmod/{{$shop_id}}/{{$product->id}}">
-					@csrf
-					<table border="1">
+		<div class="modificar">
+			<form method="post" action="/productsmod/{{$shop_id}}/{{$product->id}}">
+				@csrf
+				<table>
+					<tr>
+						<th colspan="2" class="trn" data-trn-key="Modify">Modificar Stock</th>
+					</tr>
 					<tr>
 						<td class="trn" data-trn-key="Product name">Nombre del producto</td>
 						<td><input value="<?php echo($product->name); ?>" readonly id="nb" onkeyup="this.value = this.value.replace(/[&*<>]/g, '')" type="text" name="nombre" required pattern="[^'\x22]+"></td>
@@ -67,14 +71,12 @@
 						<td class="trn" data-trn-key="New stock">Nuevo stock</td>
 						<td><input min="0" value="" id="mod_stock" type="number" name="stock" pattern="[^'\x22]+"></td>
 					</tr>
-
-					</table>
-					<input id="bottrad" class="boton3" type="submit" value="Modificar producto" name="boton" onclick="Producto()">
-				</form>
+				</table>
+				<input id="bottrad" class="btn-mod" type="submit" value="Modificar producto" name="boton" onclick="Producto()">
+			</form>
+		</div>
 				<p id="seleccion"></p>
-	</div>
 	</section>
-
 	<script type="text/javascript">
 	//Variables para almacenar los datos de TODOS los campos
 		var mod_stock = document.getElementById("mod_stock");

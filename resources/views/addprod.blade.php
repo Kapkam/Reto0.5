@@ -52,39 +52,43 @@
 		<div id="logoSmall">
 			<img src="img/<?php echo(strtolower($_SESSION["shop"]->name)); ?>-logo.png" >
 		</div>
-		<form method="post" enctype="multipart/form-data" action="{{route('insertarProducto',$_SESSION['shop']->id)}}">
-			@csrf
-			<table border="1">
-				<tr>
-					<td class="trn" data-trn-key="Product name">Nombre del producto</td>
-					<td><input id="nb" onkeyup="this.value = this.value.replace(/[&*<>]/g, '')" type="text" name="nombre" required pattern="[^'\x22]+"></td>
-				</tr>
-				<tr>
-					<td class="trn" data-trn-key="Description:">Descripcion:</td>
-					<td>
-						<textarea id="dscp" onkeyup="this.value = this.value.replace(/[&*<>]/g, '')" required name="descripcion"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td class="trn" data-trn-key="Product image">Imagen del producto</td>
-					<td>
-						<input type="file" name="img" accept="image/*" />
-					</td>
-				</tr>
-				<tr>
-					<td class="trn" data-trn-key="Stock">Stock</td>
-					<td><input min="0" name="stock" id="stock" type="number" name="stock_modificado" required pattern="[^'\x22]+"></td>
-				</tr>
-				<tr>
-					<td class="trn" data-trn-key="Videos">Videos</td>
-					<td><input onkeyup="this.value = this.value.replace(/[&*<>]/g, '')" name="links" id="Video" type="url" required name="homepage"></td>
-				</tr>
+		<div class="addProduct">
+			<form method="post" enctype="multipart/form-data" action="{{route('insertarProducto',$_SESSION['shop']->id)}}">
+				@csrf
+				<table>
+					<tr>
+						<th colspan="2" class="trn" data-trn-key="Add Product">Añadir Producto</th>
+					</tr>
+					<tr>
+						<td class="trn" data-trn-key="Product name">Nombre del producto</td>
+						<td><input id="nb" onkeyup="this.value = this.value.replace(/[&*<>]/g, '')" type="text" name="nombre" required pattern="[^'\x22]+"></td>
+					</tr>
+					<tr>
+						<td class="trn" data-trn-key="Description:">Descripcion:</td>
+						<td>
+							<textarea id="dscp" onkeyup="this.value = this.value.replace(/[&*<>]/g, '')" required name="descripcion"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="trn" data-trn-key="Product image">Imagen del producto</td>
+						<td>
+							<input type="file" name="img" accept="image/*" />
+						</td>
+					</tr>
+					<tr>
+						<td class="trn" data-trn-key="Stock">Stock</td>
+						<td><input min="0" name="stock" id="stock" type="number" name="stock_modificado" required pattern="[^'\x22]+"></td>
+					</tr>
+					<tr>
+						<td class="trn" data-trn-key="Videos">Videos</td>
+						<td><input onkeyup="this.value = this.value.replace(/[&*<>]/g, '')" name="links" id="Video" type="url" required name="homepage"></td>
+					</tr>
 
-			</table>
-			<input class="boton3" id="bottrad" type="submit" value="Añadir producto" name="boton" onclick="Producto()">
-		</form>
+				</table>
+				<input class="btn-add" id="bottrad" type="submit" value="Añadir producto" name="boton" onclick="Producto()">
+			</form>
+		</div>
 		<p  id="seleccion"></p>
-	</div>
 
 	</section>
 	<section class="footer">

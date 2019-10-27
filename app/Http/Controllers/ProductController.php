@@ -154,6 +154,6 @@ class ProductController extends Controller
 
       $stock = $product->stock;
 
-      return view('result',['result' => $stock]);
+      return view('query',['result' => $stock]);
     }
 }
