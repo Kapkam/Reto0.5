@@ -18,10 +18,14 @@
     <section class="navbar">
       <div id="myTopnav" class="nav">
         <ul>
-          <li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
           <li class="pags active"><a href="{{route('home')}}">Inicio</a></li>
+          <?php $cont = 0; ?>
             @foreach ($_SESSION["shops"] as $shop)
-              <li class='pags active'><a href="{{route('productos',$shop->id)}}"><?php echo($shop->name); ?></a></li>
+              <li class='pags'><a id=" <?php echo($shop->id); ?>" href="{{route('productos',$shop->id)}}"><?php echo($shop->name); ?></a></li>
+              @if ($cont === 1)
+                <li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
+              @endif
+              <?php $cont ++; ?>
             @endforeach
           <li class="pags dropdown">
             <a class="dropbtn" href="#">Centro</a>

@@ -345,7 +345,7 @@ iframe{
 /* CSS tiendas */
 .articulo{
 	width: 75%;
-	float: right;
+	margin-left: 15em;
 }
 .seccion{
 	background-color:rgba(0,0,0,0);
@@ -429,7 +429,29 @@ form{
   margin-top: 8em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+}
+.col{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.actions{
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-right: 2em;
+  margin-left: -8em;
+}
+.actions form{
+  padding-left: 5em;
+}
+.actions input{
+  border: none;
+  color: #fff !important;
+  padding: 0.5em 1em;
+  background: #f52b07;
+  position: relative;
+
 }
 /* Responsive mediaquery */
 @media only screen and (max-width: 800px) {
@@ -492,5 +514,12 @@ form{
   }
   .tgfo h1{
     margin: 1em;
+  }
+  /* shops */
+  .actions{
+    margin-left: -10em;
+  }
+  .articulo{
+  	margin-left: 5em;
   }
 }

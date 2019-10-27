@@ -8,7 +8,7 @@
 <head>
 	<title>Tienda</title>
 	<link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
-
+	<script src="{{ asset('js/script.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.translate.js') }}"></script>
@@ -23,10 +23,14 @@
 	<section class="navbar">
 		<div id="myTopnav" class="nav">
 			<ul>
-				<li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
 				<li class="pags active"><a href="{{route('home')}}">Inicio</a></li>
+				<?php $cont = 0; ?>
 					@foreach ($_SESSION["shops"] as $shop)
-						<li class='pags active'><a href="{{route('productos',$shop->id)}}"><?php echo($shop->name); ?></a></li>
+						<li class='pags'><a id=" <?php echo($shop->id); ?>" href="{{route('productos',$shop->id)}}"><?php echo($shop->name); ?></a></li>
+						@if ($cont === 1)
+							<li><a id="logo" href="#top"><img src="{{ url('/img/logo.png') }}" alt="logo"></a></li>
+						@endif
+						<?php $cont ++; ?>
 					@endforeach
 				<li class="pags dropdown">
 					<a class="dropbtn" href="#">Centro</a>
@@ -48,12 +52,14 @@
 			<div class="tiendas">
 				<div class="tarjeta">
 					<div class="col">
-						<form action="{{route('añadirProducto')}}" method='get'>
-							<input type='submit' class="boton2" id="bottrad" value='Añadir un producto'>
-						</form>
-						<form action="{{route('formularioConsulta')}}" method='get'>
-							<input type='submit' class="boton2" id="botcon" value='Realizar una consulta'>
-						</form>
+						<div class="actions">
+							<form action="{{route('añadirProducto')}}" method='get'>
+								<input type='submit' class="boton2" id="bottrad" value='Añadir un producto'>
+							</form>
+							<form action="{{route('formularioConsulta')}}" method='get'>
+								<input type='submit' class="boton2" id="botcon" value='Realizar una consulta'>
+							</form>
+						</div>
 						<article class="articulo">
 							@foreach ($_SESSION["products"] as $product)
 							<section class="seccion">
