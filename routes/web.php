@@ -11,14 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/saludo', function () {
-  $nombre = "dw32";
-    return view('saludo',['nombre' => $nombre]);
-    // return view('saludo');
-})->name('saludo');
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/', 'ShopController@index')->name('home');
+
+Route::get('/products/{shop}', 'ProductController@listaProductos')->name('productos');
+
+Route::get('/create', 'ProductController@create')->name('añadirProducto');
+
+Route::post('/products/{shop}', 'ProductController@store')->name('insertarProducto');
+
+Route::post('/products/{shop_id}/{product_id}','ProductController@edit')->name('formularioModificar');
+
+Route::post('/productsmod/{shop_id}/{product_id}', 'ProductController@update')->name('modificar');
+
+Route::post('/productsdel/{shop_id}/{product_id}', 'ProductController@destroy')->name('eliminarProducto');
+
+Route::get('/consulta', 'ProductController@formularioConsulta')->name('formularioConsulta');
+
+Route::post('/resultados', 'ProductController@consulta')->name('resultados');
+
+?>
