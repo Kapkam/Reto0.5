@@ -18,7 +18,7 @@
     <section class="navbar">
       <div id="myTopnav" class="nav">
         <ul>
-          <li class="pags active"><a href="{{route('home')}}">Inicio</a></li>
+          <li class="pags active"><a class="trn" data-trn-key="Home" href="{{route('home')}}">Inicio</a></li>
           <?php $cont = 0; ?>
             @foreach ($_SESSION["shops"] as $shop)
               <li class='pags'><a id=" <?php echo($shop->id); ?>" href="{{route('productos',$shop->id)}}"><?php echo($shop->name); ?></a></li>
@@ -28,11 +28,18 @@
               <?php $cont ++; ?>
             @endforeach
           <li class="pags dropdown">
-            <a class="dropbtn" href="#">Centro</a>
+            <a class="dropbtn trn" data-trn-key="Mall" href="{{route('home')}}">Centro</a>
             <div class="dropdown-content">
-              <a href="#horario">Horario</a>
-              <a href="#mapa">Mapa</a>
-              <a href="#contacto">Contáctanos</a>
+              <a class="trn" data-trn-key="Schedule" href="#horario">Horario</a>
+              <a class="trn" data-trn-key="Map" href="#mapa">Mapa</a>
+              <a class="trn" data-trn-key="Contact us" href="#contacto">Contáctanos</a>
+            </div>
+          </li>
+          <li class="pags dropdown last">
+            <a class="dropbtn trn" data-trn-key="Languages" href="#top">Idiomas</a>
+            <div id="idiomas" class="dropdown-content">
+              <img style="width:40px; height:25px; cursor:pointer; padding: 10px;" class="trad" src="{{ url('/img/ingles.png') }}" value="Ingles" name="Ingles" onclick="ingles()" alt="ingles">
+              <img style="width:40px; height:25px; cursor:pointer; padding: 10px;" class="trad" src="{{ url('/img/español.png') }}" value="Castellano" name="Castellano" onclick="castellano()" alt="castellano">
             </div>
           </li>
           <li class="icon"><a href="javascript:void(0);" onclick="myFunction()"><img src="{{ url('/img/bars.png') }}" alt="bras"></a></li>
@@ -43,79 +50,72 @@
       <div class="banner"></div>
       <div class="newsletter">
         <form class="suscribe" action="home.blade.php" method="post">
-          <p>Suscríbete para no perderte nada.</p>
+          <p class="trn" data-trn-key="Subscribe" >Suscríbete para no perderte nada.</p>
           <input type="text" name="nombre" placeholder="Nombre">
           <input type="email" name="email" placeholder="Email">
-          <button type="button" name="button">Suscribirse</button>
+          <button class="trn" data-trn-key="suscribe btn" type="button" name="button">Leer Más</button>
         </form>
       </div>
       <div id="tiendas" class="container">
         <div class="tiendas">
           <div class="info-titulo">
-            <h1>Tiendas destacadas</h1>
+            <h1 class="trn" data-trn-key="Feature shops">Tiendas Destacadas</h1>
             <hr>
           </div>
           <div class="tarjeta">
-            <img src="../img/zara.jpg">
+            <img src="{{ asset('img/zara.jpg') }}">
             <div class="info">
             <h3><strong>ZARA</strong></h3>
-            <p>Publicado el: <span><?php echo date("Y-m-d") ?></span></p>
-            <button type="button" name="button">Leer Más</button>
+            <button class="trn" data-trn-key="Read More" type="button" name="button">Leer Más</button>
             </div>
           </div>
           <div class="tarjeta">
-            <img src="../img/pullbear.jpg">
+            <img src="{{ asset('img/pullbear.jpg') }}">
             <div class="info">
             <h3><strong>Pull&Bear</strong></h3>
-            <p>Publicado el: <span><?php echo date("Y-m-d") ?></span></p>
-            <button type="button" name="button">Leer Más</button>
+            <button class="trn" data-trn-key="Read More" type="button" name="button">Leer Más</button>
             </div>
           </div>
           <div class="tarjeta">
-            <img src="../img/maxbowling.png">
+            <img src="{{ asset('img/maxbowling.png') }}">
             <div class="info">
             <h3><strong>Max Bowling</strong></h3>
-            <p>Publicado el: <span><?php echo date("Y-m-d") ?></span></p>
-            <button type="button" name="button">Leer Más</button>
+            <button class="trn" data-trn-key="Read More" type="button" name="button">Leer Más</button>
             </div>
           </div>
           <div class="tarjeta">
-            <img src="../img/cinesa.png">
+            <img src="{{ asset('img/cinesa.png') }}">
             <div class="info">
             <h3><strong>Cinesa</strong></h3>
-            <p>Publicado el: <span><?php echo date("Y-m-d") ?></span></p>
-            <button type="button" name="button">Leer Más</button>
+            <button class="trn" data-trn-key="Read More" type="button" name="button">Leer Más</button>
             </div>
           </div>
           <div class="tarjeta">
-            <img src="../img/king.jpg">
+            <img src="{{ asset('img/king.jpg') }}">
             <div class="info">
             <h3><strong>Burguer King</strong></h3>
-            <p>Publicado el: <span><?php echo date("Y-m-d") ?></span></p>
-            <button type="button" name="button">Leer Más</button>
+            <button class="trn" data-trn-key="Read More" type="button" name="button">Leer Más</button>
             </div>
           </div>
           <div class="tarjeta">
-            <img src="../img/mediamarkt.jpg">
+            <img src="{{ asset('img/mediamarkt.jpg') }}">
             <div class="info">
             <h3><strong>MediaMarkt</strong></h3>
-            <p>Publicado el: <span><?php echo date("Y-m-d") ?></span></p>
-            <button type="button" name="button">Leer Más</button>
+            <button class="trn" data-trn-key="Read More" type="button" name="button">Leer Más</button>
             </div>
           </div>
           <div class="tarjeta">
-            <img src="../img/game.jpg">
+            <img src="{{ asset('img/game.jpg') }}">
             <div class="info">
             <h3><strong>GAME</strong></h3>
-            <p>Publicado el: <span><?php echo date("Y-m-d") ?></span></p>
-            <button type="button" name="button">Leer Más</button>
+            <button class="trn" data-trn-key="Read More" type="button" name="button">Leer Más</button>
             </div>
           </div>
         </div>
       </div>
       <div class="promocion">
-        <p>Las mejores ofertas de MaxCenter</p>
-        <button class="btn-promocion"type="button" name="button">Más Promociones</button>
+        <p class="trn" data-trn-key="MaxOffers">Las mejores ofertas de MaxCenter</p>
+        <button class="btn-promocion trn" data-trn-key="MaxOffers-btn" type="button" name="button">Más Promociones</button>
       </div>
       <div class="contactenos">
         <div id="mapa">
@@ -124,7 +124,7 @@
         <div id="contacto" class="contact-form">
           <div class="row">
             <form class="con-form">
-              <h1>Contáctenos</h1>
+              <h1 class="trn" data-trn-key="Contact us">Contáctenos</h1>
               <input type="email" class="form-control" placeholder="Your E-mail">
               <textarea class="form-control" rows="4" placeholder="Message"></textarea>
               <button type="submit" class="btn btn-primary" name="Send">Send</button>
@@ -136,27 +136,27 @@
                 <label>E-mail:</label><input type="text" name="con-email" readonly value="info@adm.maxcenter.com">
               </div>
               <div>
-                <h1 id="horario">Horario</h1>
+                <h1 class="trn" data-trn-key="Schedule" href="#horario" id="horario">Horario</h1>
                 <table class="tg">
                   <tr>
-                    <th class="tg-c3ow">Centro comercial</th>
-                    <th class="tg-baqh">Zona Ocio</th>
-                    <th class="tg-baqh">Tquillas</th>
+                    <th class="tg-c3ow trn" data-trn-key="Mall" href="#horario">Centro comercial</th>
+                    <th class="tg-baqh trn" data-trn-key="Leisure Zone">Zona Ocio</th>
+                    <th class="tg-baqh trn" data-trn-key="Ticket office">Tquillas</th>
                   </tr>
                   <tr>
-                    <td class="tg-baqh">Lun - Sab desde 10:00 hasta 22:00</td>
-                    <td class="tg-lqy6">Lun - Jue desde 12:00 hasta 01:30</td>
-                    <td class="tg-baqh">Lun - Dom desde 15:30 hasta 23:00</td>
+                    <td class="tg-baqh trn" data-trn-key="horario1">Lun - Sab desde 10:00 hasta 22:00</td>
+                    <td class="tg-lqy6 trn" data-trn-key="horario2">Lun - Jue desde 12:00 hasta 01:30</td>
+                    <td class="tg-baqh trn" data-trn-key="horario3">Lun - Dom desde 15:30 hasta 23:00</td>
                   </tr>
                   <tr>
-                    <td class="tg-baqh">Dom Cerrado</td>
-                    <td class="tg-baqh">Vie - Sab desde 12:00 hasta 03:30</td>
-                    <td class="tg-baqh"></td>
+                    <td class="tg-baqh trn" data-trn-key="horario4">Dom Cerrado</td>
+                    <td class="tg-baqh trn" data-trn-key="horario5">Vie - Sab desde 12:00 hasta 03:30</td>
+                    <td class="tg-baqh trn"></td>
                   </tr>
                   <tr>
-                    <td class="tg-baqh"></td>
-                    <td class="tg-baqh">Dom desde 12:00 hasta 01:30</td>
-                    <td class="tg-baqh"></td>
+                    <td></td>
+                    <td class="tg-baqh trn" data-trn-key="horario7">Dom desde 12:00 hasta 01:30</td>
+                    <td></td>
                   </tr>
                 </table>
               </div>

@@ -414,13 +414,6 @@ li a:hover {
   text-shadow: 2px 2px 2px black;
 }
 
-table{
-	margin-left: 40%;
-	background: linear-gradient(169deg, #FFF, #AAA);
-	font-weight: bolder;
-	text-align: center;
-	filter:drop-shadow(5px 5px 7px gray);
-}
 form{
 	display: inline-block;
 }

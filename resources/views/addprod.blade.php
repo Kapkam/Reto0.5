@@ -20,7 +20,7 @@
 	<section class="navbar">
 		<div id="myTopnav" class="nav">
 			<ul>
-				<li class="pags active"><a href="{{route('home')}}">Inicio</a></li>
+				<li class="pags active"><a class="trn" data-trn-key="Home" href="{{route('home')}}">Inicio</a></li>
 				<?php $cont = 0; ?>
 					@foreach ($_SESSION["shops"] as $shop)
 						<li class='pags'><a id=" <?php echo($shop->id); ?>" href="{{route('productos',$shop->id)}}"><?php echo($shop->name); ?></a></li>
@@ -30,11 +30,18 @@
 						<?php $cont ++; ?>
 					@endforeach
 				<li class="pags dropdown">
-					<a class="dropbtn" href="#">Centro</a>
+					<a class="dropbtn trn" data-trn-key="Mall" href="{{route('home')}}">Centro</a>
 					<div class="dropdown-content">
-						<a href="#horario">Horario</a>
-						<a href="#mapa">Mapa</a>
-						<a href="#contacto">Contáctanos</a>
+						<a class="trn" data-trn-key="Schedule" href="#horario">Horario</a>
+						<a class="trn" data-trn-key="Map" href="#mapa">Mapa</a>
+						<a class="trn" data-trn-key="Contact us" href="#contacto">Contáctanos</a>
+					</div>
+				</li>
+				<li class="pags dropdown last">
+					<a class="dropbtn trn" data-trn-key="Languages" href="#top">Idiomas</a>
+					<div id="idiomas" class="dropdown-content">
+						<img style="width:40px; height:25px; cursor:pointer; padding: 10px;" class="trad" src="{{ url('/img/ingles.png') }}" value="Ingles" name="Ingles" onclick="ingles()" alt="ingles">
+						<img style="width:40px; height:25px; cursor:pointer; padding: 10px;" class="trad" src="{{ url('/img/español.png') }}" value="Castellano" name="Castellano" onclick="castellano()" alt="castellano">
 					</div>
 				</li>
 				<li class="icon"><a href="javascript:void(0);" onclick="myFunction()"><img src="{{ url('/img/bars.png') }}" alt="bras"></a></li>
