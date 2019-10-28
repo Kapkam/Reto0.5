@@ -12,7 +12,7 @@
 	  <script type="text/javascript" src="{{ URL::asset('js/JavaScript.js') }}"></script>
 	  <script type="text/javascript" src="{{ URL::asset('js/diccionario.js') }}"></script>
     <title>MaxCenter</title>
-    <link rel="icon" type="image/png" href="url('/img/favicon.png') " sizes="32x32">
+    <link rel="icon" type="image/png" href="{{url('/img/favicon.png')}}" sizes="32x32">
   </head>
   <body>
     <section class="navbar">
